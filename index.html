@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>入院・手術のあとで、保険に断られたあなたへ ｜ frich（仮称・コンセプト検証中）</title>
+<style>
+  :root{
+    --navy:#16233F; --navy2:#223559; --ink:#1A2233; --sub:#55607A; --mute:#8A94A8;
+    --teal:#0FA3B1; --tealD:#0B7E89; --tealL:#E3F6F8;
+    --blue:#2C5FD8; --blueL:#EAF0FE;
+    --line:#D8DFEC; --bg:#F5F7FB; --white:#FFFFFF;
+    --red:#B23A2F; --redL:#FBEDEA; --green:#1E7F53; --greenL:#E8F5EE;
+    --amber:#A96A00; --amberL:#FFF3DA;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{font-family:"Hiragino Kaku Gothic ProN","Hiragino Sans","Noto Sans JP","Yu Gothic",Meiryo,sans-serif;color:var(--ink);background:var(--white);line-height:1.75;font-size:16px;}
+  .wrap{max-width:1060px;margin:0 auto;padding:0 20px;}
+  section{padding:72px 0;}
+  h2{font-size:28px;line-height:1.45;color:var(--navy);margin-bottom:10px;letter-spacing:.01em;}
+  .lead{color:var(--sub);font-size:15px;margin-bottom:36px;}
+  .eyebrow{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.18em;color:var(--teal);margin-bottom:10px;}
+  .note{font-size:12px;color:var(--mute);}
+
+  /* header */
+  header{position:sticky;top:0;background:rgba(255,255,255,.95);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);z-index:50;}
+  .hd{display:flex;align-items:center;gap:14px;height:58px;}
+  .logo{font-weight:800;color:var(--navy);font-size:18px;letter-spacing:.04em;}
+  .logo small{font-weight:600;color:var(--sub);font-size:12px;margin-left:10px;}
+  .badge{font-size:11px;font-weight:700;color:var(--amber);background:var(--amberL);border-radius:999px;padding:3px 10px;white-space:nowrap;}
+  .hd .cta{margin-left:auto;}
+  .btn{display:inline-block;background:var(--teal);color:#fff;font-weight:700;border-radius:999px;padding:10px 22px;text-decoration:none;font-size:14px;transition:opacity .15s;}
+  .btn:hover{opacity:.85;}
+  .btn.ghost{background:transparent;color:var(--navy);border:1.5px solid var(--line);}
+
+  /* hero */
+  .hero{background:linear-gradient(160deg,var(--navy) 0%,#1D2F52 60%,#234066 100%);color:#fff;padding:84px 0 72px;}
+  .hero .eyebrow{color:#7FD7E4;}
+  .hero h1{font-size:clamp(28px,4.6vw,44px);line-height:1.4;letter-spacing:.01em;margin-bottom:20px;}
+  .hero p.sub{color:#C6D2E8;font-size:clamp(15px,1.8vw,18px);max-width:620px;margin-bottom:30px;}
+  .hero .cols{display:grid;grid-template-columns:1.25fr 1fr;gap:44px;align-items:center;}
+  .hero .ctas{display:flex;gap:12px;flex-wrap:wrap;}
+  .hero .btn.ghost{color:#fff;border-color:rgba(255,255,255,.4);}
+  .heroCard{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);border-radius:16px;padding:26px;}
+  .heroCard .t{font-size:13px;font-weight:700;color:#7FD7E4;letter-spacing:.1em;margin-bottom:14px;}
+  .hrow{display:flex;gap:12px;align-items:flex-start;margin-bottom:14px;}
+  .hrow:last-child{margin-bottom:0;}
+  .pill{flex:0 0 auto;font-size:11px;font-weight:800;border-radius:8px;padding:5px 10px;margin-top:2px;}
+  .pill.wait{background:#3A4C74;color:#BFD0EE;}
+  .pill.now{background:var(--teal);color:#fff;}
+  .hrow p{font-size:13.5px;color:#DDE6F5;line-height:1.6;}
+  .hrow p b{color:#fff;}
+
+  /* voices */
+  .voices{background:var(--bg);}
+  .vgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+  .voice{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px;}
+  .voice p{font-size:14.5px;color:var(--ink);}
+  .voice .who{font-size:12px;color:var(--mute);margin-top:12px;}
+  .voice::before{content:"“";font-size:34px;line-height:0;color:var(--teal);font-weight:800;display:block;margin:10px 0 2px;}
+  .punch{margin-top:30px;background:var(--navy);color:#fff;border-radius:14px;padding:20px 26px;font-size:15.5px;}
+  .punch b{color:#7FD7E4;}
+
+  /* who */
+  .who2{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:18px;}
+  .cond{background:var(--tealL);border:1px solid #BCE3E8;border-radius:14px;padding:24px;}
+  .cond .n{font-weight:800;color:var(--tealD);font-size:13px;letter-spacing:.08em;}
+  .cond h3{font-size:18px;color:var(--navy);margin:6px 0 8px;line-height:1.5;}
+  .cond p{font-size:14px;color:var(--sub);}
+  .ng{background:var(--redL);border:1px solid #EAC8C2;border-radius:14px;padding:20px 24px;}
+  .ng h4{font-size:14px;color:var(--red);margin-bottom:8px;}
+  .ng ul{list-style:none;display:flex;flex-wrap:wrap;gap:8px 18px;}
+  .ng li{font-size:13.5px;color:var(--ink);}
+  .ng li::before{content:"✕ ";color:var(--red);font-weight:700;}
+
+  /* steps */
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+  .step{background:#fff;border:1px solid var(--line);border-radius:16px;padding:26px;position:relative;}
+  .step .sn{position:absolute;top:-14px;left:22px;background:var(--teal);color:#fff;font-weight:800;font-size:12px;border-radius:999px;padding:4px 14px;letter-spacing:.06em;}
+  .step h3{font-size:18px;color:var(--navy);margin:8px 0 10px;line-height:1.5;}
+  .step p{font-size:14px;color:var(--sub);}
+  .step p b{color:var(--ink);}
+  .promise{margin-top:26px;background:var(--greenL);border:1px solid #BFE0CD;border-radius:14px;padding:18px 24px;font-size:14.5px;color:var(--ink);}
+  .promise b{color:var(--green);}
+
+  /* target cards */
+  .targets{background:var(--bg);}
+  .tgrid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+  .tcard{background:#fff;border:1px solid var(--line);border-radius:16px;padding:26px;display:flex;flex-direction:column;}
+  .tcard h3{font-size:19px;color:var(--navy);line-height:1.45;}
+  .scale{display:inline-block;font-size:12px;font-weight:700;color:var(--blue);background:var(--blueL);border-radius:999px;padding:4px 12px;margin:10px 0 16px;align-self:flex-start;}
+  .tt{font-size:12.5px;font-weight:800;letter-spacing:.04em;margin-bottom:6px;}
+  .tt.w{color:var(--amber);}
+  .tt.o{color:var(--green);}
+  .tt.k{color:var(--tealD);}
+  .tcard ul{list-style:none;margin-bottom:14px;}
+  .tcard li{font-size:13.5px;color:var(--ink);padding-left:1.2em;text-indent:-1.2em;line-height:1.65;}
+  .tcard .w li::before{content:"◻ ";color:var(--amber);}
+  .tcard .o li::before{content:"✓ ";color:var(--green);font-weight:700;}
+  .kaijo{background:var(--tealL);border-radius:10px;padding:12px 14px;font-size:13px;color:var(--ink);margin-top:auto;}
+  .kaijo b{color:var(--tealD);}
+  .tsrc{margin-top:18px;}
+
+  /* price */
+  .ladder{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;align-items:end;margin:30px 0 14px;}
+  .lad{border-radius:12px 12px 4px 4px;display:flex;align-items:flex-end;justify-content:center;padding-bottom:10px;color:#fff;font-size:12.5px;font-weight:700;text-align:center;line-height:1.4;}
+  .lad span{opacity:.9;}
+  .l1{height:78px;background:#93A5C4;}
+  .l2{height:108px;background:#5F79A6;}
+  .l3{height:140px;background:var(--teal);box-shadow:0 6px 18px rgba(15,163,177,.35);}
+  .l4{height:170px;background:var(--navy);}
+  .ladCap{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;text-align:center;font-size:12px;color:var(--sub);}
+  .pricebox{margin-top:26px;background:var(--amberL);border:1px solid #E8D2A0;border-radius:14px;padding:20px 24px;font-size:14.5px;}
+  .pricebox b{color:var(--amber);}
+
+  /* wakewake */
+  .wake{background:var(--navy);color:#fff;}
+  .wake h2{color:#fff;}
+  .wake .lead{color:#AFC3E8;}
+  .wgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+  .wcard{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);border-radius:14px;padding:24px;}
+  .wcard h3{font-size:16.5px;color:#7FD7E4;margin-bottom:8px;}
+  .wcard p{font-size:13.5px;color:#D5DEF0;}
+  .wnote{margin-top:22px;font-size:12.5px;color:#8FA2C4;}
+
+  /* faq */
+  details{border:1px solid var(--line);border-radius:12px;margin-bottom:12px;background:#fff;overflow:hidden;}
+  summary{cursor:pointer;padding:18px 22px;font-weight:700;font-size:15px;color:var(--navy);list-style:none;position:relative;padding-right:46px;}
+  summary::-webkit-details-marker{display:none;}
+  summary::after{content:"＋";position:absolute;right:20px;top:50%;transform:translateY(-50%);color:var(--teal);font-weight:400;font-size:18px;}
+  details[open] summary::after{content:"−";}
+  details .a{padding:0 22px 18px;font-size:14px;color:var(--sub);}
+  details .a b{color:var(--ink);}
+
+  /* agents */
+  .agents{background:var(--bg);}
+  .agBox{background:#fff;border:1.5px solid var(--navy);border-radius:18px;padding:34px;}
+  .agBox .tag{display:inline-block;background:var(--navy);color:#fff;font-size:12px;font-weight:700;border-radius:999px;padding:5px 14px;letter-spacing:.08em;margin-bottom:14px;}
+  .agBox h2{font-size:24px;}
+  .aggrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:24px 0;}
+  .ag{background:var(--bg);border-radius:12px;padding:18px 20px;}
+  .ag h4{font-size:14px;color:var(--navy);margin-bottom:6px;}
+  .ag p{font-size:13px;color:var(--sub);}
+  .agcta{display:flex;gap:14px;align-items:center;flex-wrap:wrap;}
+  .agcta p{font-size:13.5px;color:var(--sub);}
+
+  footer{padding:44px 0 60px;border-top:1px solid var(--line);}
+  footer p{font-size:12px;color:var(--mute);margin-bottom:6px;}
+
+  @media(max-width:840px){
+    section{padding:52px 0;}
+    h2{font-size:23px;}
+    .hero .cols{grid-template-columns:1fr;gap:30px;}
+    .vgrid,.steps,.wgrid,.aggrid{grid-template-columns:1fr;}
+    .who2,.tgrid{grid-template-columns:1fr;}
+    .hd .badge{display:none;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap hd">
+    <div class="logo">frich<small>新しいたすけあい（名称検討中）</small></div>
+    <span class="badge">コンセプト検証中</span>
+    <div class="cta"><a class="btn" href="#contact">資料請求・ご相談</a></div>
+  </div>
+</header>
+
+<!-- S1 HERO -->
+<div class="hero">
+  <div class="wrap cols">
+    <div>
+      <span class="eyebrow">CONCEPT</span>
+      <h1>入院・手術のあとで、<br>保険に断られたあなたへ。</h1>
+      <p class="sub">治療は終わった。数値も戻っている。それでも1〜2年は、どの保険にも入れない——その“空白の期間”を支える、新しいたすけあいです。</p>
+      <div class="ctas">
+        <a class="btn" href="#target">対象になるか確かめる</a>
+        <a class="btn ghost" href="#agents">代理店・募集人の方はこちら</a>
+      </div>
+    </div>
+    <div class="heroCard">
+      <div class="t">このしくみの約束</div>
+      <div class="hrow">
+        <span class="pill wait">しばらく対象外</span>
+        <p><b>原因になった病気のグループだけ</b>、一定期間お待ちいただきます（やがて解除されます）</p>
+      </div>
+      <div class="hrow">
+        <span class="pill now">初日から保障</span>
+        <p><b>それ以外の病気・ケガは、初日から</b>。肺炎も、骨折も、別の臓器の病気も</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- S2 VOICES -->
+<section class="voices">
+  <div class="wrap">
+    <span class="eyebrow">VOICES</span>
+    <h2>こんな経験はありませんか</h2>
+    <p class="lead">医療保険の告知には「過去1〜2年以内の入院・手術」という質問があります。理由を問わず、該当すればほとんどの場合お断りです。</p>
+    <div class="vgrid">
+      <div class="voice"><p>大腸のポリープを取っただけなのに、「2年間は入れません」と言われた。</p><div class="who">50代・男性（内視鏡でポリープ切除）</div></div>
+      <div class="voice"><p>教育入院で生活を立て直して、数値はむしろ良くなった。それでも断られた。</p><div class="who">50代・男性（糖尿病の教育入院）</div></div>
+      <div class="voice"><p>がんの手術から1年。再発もなく経過は良好なのに、「あと4年お待ちください」。</p><div class="who">40代・女性（乳がん・治療完了）</div></div>
+    </div>
+    <div class="punch">断られた理由は、いまのあなたの健康状態ではなく、<b>「直近に入院・手術をした」という事実だけ</b>かもしれません。私たちは、その先を見ます。</div>
+  </div>
+</section>
+
+<!-- S3 WHO -->
+<section id="target">
+  <div class="wrap">
+    <span class="eyebrow">FOR WHOM</span>
+    <h2>誰のための、たすけあいか</h2>
+    <p class="lead">次の2つにあてはまる方のための共済です。</p>
+    <div class="who2">
+      <div class="cond">
+        <div class="n">条件 1</div>
+        <h3>医療保険に入りたくても、入れない方</h3>
+        <p>直近1〜2年以内の入院・手術が理由で、通常の医療保険にも、持病があっても入りやすい「引受基準緩和型」にも入れなかった方。</p>
+      </div>
+      <div class="cond">
+        <div class="n">条件 2</div>
+        <h3>「いまは問題ない」を、数字で示せる方</h3>
+        <p>治療を終え、ご自身では健康面に問題ないと感じている——そして健康診断の結果やお薬手帳など、それを裏づける<b>客観的な情報</b>をお持ちの方。私たちは病名ではなく、その数字と管理の事実を見ます。</p>
+      </div>
+    </div>
+    <div class="ng">
+      <h4>対象にならない方（正直にお伝えします）</h4>
+      <ul>
+        <li>いま、入院・手術・精密検査をすすめられている方（未実施のまま）</li>
+        <li>がんの治療中の方</li>
+        <li>人工透析を受けている方</li>
+        <li>予定された入院・手術がある方</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- S4 HOW -->
+<section style="background:var(--bg);">
+  <div class="wrap">
+    <span class="eyebrow">HOW IT WORKS</span>
+    <h2>基本的なしくみ — 3つのステップ</h2>
+    <p class="lead">「審査がゆるい」のではありません。<b>ちゃんと見るから、入れる</b>。それがこのしくみです。</p>
+    <div class="steps">
+      <div class="step"><span class="sn">STEP 1</span>
+        <h3>いま、入る</h3>
+        <p>入院・手術からの経過が短くても、健康診断の結果などを確認して引き受けます。<b>原因になった病気のグループだけ</b>一定期間保障の対象外（不担保）とし、<b>それ以外の病気・ケガは初日から保障</b>します。</p>
+      </div>
+      <div class="step"><span class="sn">STEP 2</span>
+        <h3>毎年、数値で更新</h3>
+        <p>年に1回、健康診断の結果などをご提出いただきます。見る数値は原因の病気によって変わります（糖尿病ならHbA1c、心臓なら血圧やLDL、ポリープなら検査の受診）。<b>基準内なら保険料の割引が続き、不担保が「半分給付」→「満額」へと解除</b>されていきます。歩数・活動量など<b>“あるとよい情報”のご提出は任意</b>です——なくても不利にはなりませんが、あれば翌年度の更新にプラスに加味します。</p>
+      </div>
+      <div class="step"><span class="sn">STEP 3</span>
+        <h3>続けるほど、戻ってくる</h3>
+        <p>みんなで支え合う「わけわけ」のしくみ。給付が少なかった年は、余った掛金の一部が<b>割戻しとして戻ります</b>。反対に給付が多かった年は、割戻しが出ない・翌年の掛金が見直されるなど、<b>参加者どうし（しくみによっては取扱代理店も）で一定のリスクを分かち合う</b>可能性があります——それが「たすけあい」の意味です。管理の実績、育った保障、割戻し。続けた分だけ積み上がります。</p>
+      </div>
+    </div>
+    <div class="promise"><b>大切な約束：</b>数値が悪くなっても、それを理由に給付をお断りすることはありません。割引と保障の“育ち”が一時停止するだけです。ペナルティではなく、ご褒美で続くしくみにしています。</div>
+  </div>
+</section>
+
+<!-- S5 TARGETS -->
+<section class="targets">
+  <div class="wrap">
+    <span class="eyebrow">CASES</span>
+    <h2>対象になる方の例</h2>
+    <p class="lead">代表的な4つのケースです。「対象外になるもの」と「初日から保障されるもの」を、具体的にご覧ください。</p>
+    <div class="tgrid">
+
+      <div class="tcard">
+        <h3>大腸ポリープ・内視鏡治療のあと</h3>
+        <span class="scale">入院を伴うものだけで年間34万件 — 手術件数で全国最多クラス</span>
+        <div class="tt w">◻ はじめの6ヶ月、対象外になるもの</div>
+        <ul class="w"><li>大腸のポリープ・腺腫・大腸がん、その内視鏡治療や手術による入院</li></ul>
+        <div class="tt o">✓ 初日から保障されるもの（例）</div>
+        <ul class="o">
+          <li>肺炎・インフルエンザでの入院</li>
+          <li>骨折・ケガの手術、虫垂炎、胆石</li>
+          <li>心臓や脳の病気、糖尿病での入院</li>
+          <li>大腸以外のがん</li>
+        </ul>
+        <div class="kaijo"><b>解除の条件：</b>医師に指示された次回の大腸内視鏡検査を、時期どおりに受けていること。それだけです。</div>
+      </div>
+
+      <div class="tcard">
+        <h3>糖尿病の教育入院・血糖調整入院のあと</h3>
+        <span class="scale">糖尿病で治療中の方は全国552万人</span>
+        <div class="tt w">◻ はじめの12ヶ月、対象外になるもの</div>
+        <ul class="w"><li>糖尿病と、その合併症（腎症・網膜症・神経障害・足病変、低血糖・高血糖による昏睡など）での入院</li></ul>
+        <div class="tt o">✓ 初日から保障されるもの（例）</div>
+        <ul class="o">
+          <li>肺炎での入院、骨折・ケガの手術</li>
+          <li>虫垂炎・胆石など消化器の病気</li>
+          <li>がん、心臓や脳の病気での入院</li>
+        </ul>
+        <div class="kaijo"><b>解除の条件：</b>HbA1cが基準の範囲内で悪化していないこと、お薬と通院を続けていること、年1回の健診結果のご提出。</div>
+      </div>
+
+      <div class="tcard">
+        <h3>心臓カテーテル治療（PCI）のあと</h3>
+        <span class="scale">カテーテル治療は年間24.5万件</span>
+        <div class="tt w">◻ はじめの12ヶ月、対象外になるもの</div>
+        <ul class="w"><li>狭心症・心筋梗塞など冠動脈の病気、その再治療（再カテーテル・バイパス手術）、心不全での入院</li></ul>
+        <div class="tt o">✓ 初日から保障されるもの（例）</div>
+        <ul class="o">
+          <li>肺炎での入院、骨折・ケガの手術</li>
+          <li>胃腸・肝臓など消化器の病気</li>
+          <li>がん、脳の病気、糖尿病での入院</li>
+        </ul>
+        <div class="kaijo"><b>解除の条件：</b>LDLコレステロールと血圧が基準内、処方されたお薬（抗血小板薬など）の継続、禁煙、再発がないこと。</div>
+      </div>
+
+      <div class="tcard">
+        <h3>がんの手術のあと（治療完了から6ヶ月〜）</h3>
+        <span class="scale">がんと診断される方は年間99万人 — うち現役世代が約20万人</span>
+        <div class="tt w">◻ はじめの24ヶ月、対象外になるもの（段階的に解除）</div>
+        <ul class="w"><li>すべてのがん（再発・転移・新たながん）による入院・手術</li></ul>
+        <div class="tt o">✓ 初日から保障されるもの（例）</div>
+        <ul class="o">
+          <li>肺炎での入院、骨折・ケガの手術</li>
+          <li>心臓や脳の病気、糖尿病での入院</li>
+          <li>胆石・ヘルニアなど、がん以外のすべての病気</li>
+        </ul>
+        <div class="kaijo"><b>解除の条件：</b>数値ではなく、医師の指示どおりに定期検査（画像・内視鏡など）を受け続けていること。更新のたびに「半分給付」→「満額」へ育ちます。<br><b>さらに：</b>歩数や運動などの活動量の記録も、ぜひお出しください（<b>任意・あるとよい情報</b>）。ご提出がなくても不利にはなりませんが、あれば翌年の更新時にプラスに総合的に加味します。大腸がんでは、運動が再発リスクを下げることが臨床試験で示されています。</div>
+      </div>
+
+    </div>
+    <p class="note tsrc">件数の出典：厚生労働省NDBオープンデータ・患者調査、全国がん登録（2023年）、JROAD（2024年版）。対象外の範囲・期間・解除条件は現在検討中の設計案であり、変更されることがあります。</p>
+  </div>
+</section>
+
+<!-- S6 PRICE -->
+<section>
+  <div class="wrap">
+    <span class="eyebrow">PRICING POLICY</span>
+    <h2>掛金（保険料）の考え方</h2>
+    <p class="lead">具体的な掛金は、現在策定中です。先に「水準の考え方」だけ、はっきりお伝えします。</p>
+    <div class="ladder">
+      <div class="lad l1"><span>通常の<br>医療保険</span></div>
+      <div class="lad l2"><span>引受基準<br>緩和型</span></div>
+      <div class="lad l3"><span>本共済<br>（仮称）</span></div>
+      <div class="lad l4"><span>無選択型<br>（告知なし）</span></div>
+    </div>
+    <div class="ladCap">
+      <div>健康な方向け</div><div>持病があっても<br>入りやすい</div><div><b style="color:var(--tealD);">いま、どちらにも<br>入れない方向け</b></div><div>誰でも入れるが<br>高額・保障開始が遅い</div>
+    </div>
+    <div class="pricebox"><b>水準の前提：</b>無選択型ほど高くはなく、引受基準緩和型よりは少し高い水準を前提に設計します（金額は今後策定・仮）。加えて「わけわけ」の割戻しにより、結果として実質のご負担が下がる可能性があります（割戻しをお約束するものではありません）。</div>
+  </div>
+</section>
+
+<!-- S7 WAKEWAKE -->
+<section class="wake">
+  <div class="wrap">
+    <span class="eyebrow" style="color:#7FD7E4;">P2P MUTUAL AID</span>
+    <h2>「わけわけ」— みんなで支え合い、余ったら戻す</h2>
+    <p class="lead">これは保険会社の商品ではなく、同じ経験をした人どうしが少人数で支え合う共済（たすけあい）のしくみです。</p>
+    <div class="wgrid">
+      <div class="wcard"><h3>集めて、支払う</h3><p>参加者の掛金から、入院された方への給付をお支払いします。給付には年間の上限を設け、みんなの掛金を守ります。</p></div>
+      <div class="wcard"><h3>余ったら、戻す</h3><p>給付が少なかった年は、余った掛金の一部を参加者に割戻します。掛け捨てで終わらない可能性がある、それがこのしくみの持ち味です。</p></div>
+      <div class="wcard"><h3>小さいから、できる</h3><p>1つのグループは1,000人まで。この「小ささ」こそが、大きな保険会社にはできない柔軟な引受を可能にしています。</p></div>
+    </div>
+    <p class="wnote">※ 運営は、P2P互助プラットフォームを手がけるfrich株式会社（規制サンドボックス特例認定・2020年）を予定しています。</p>
+  </div>
+</section>
+
+<!-- S8 FAQ -->
+<section>
+  <div class="wrap">
+    <span class="eyebrow">FAQ</span>
+    <h2>よくある質問</h2>
+    <p class="lead" style="margin-bottom:26px;">検討中の構想のため、内容は変わる可能性があります。</p>
+
+    <details><summary>本当に入れますか？</summary><div class="a">「直近の入院・手術で他の保険に入れないこと」と「健康診断の結果などで現在の状態を示せること」の2つを満たす方が対象です。所定の審査があり、すべての方をお引き受けできるわけではありませんが、<b>病名や入院の事実だけを理由にお断りすることはしません</b>。</div></details>
+
+    <details><summary>診断書は必要ですか？</summary><div class="a">基本は<b>健康診断の結果とお薬手帳（服薬の記録）</b>です。心臓の治療後やがんの治療後など一部のケースでは、主治医に記入いただく簡単なフォーム1枚をお願いする場合があります。高額な診断書の取得を前提にはしません。健診を受けていない方は、まず健診の受診からご案内します。</div></details>
+
+    <details><summary>「不担保」とはなんですか？いつ外れますか？</summary><div class="a">原因になった病気のグループ（例：大腸ポリープなら「大腸の病気」）だけを、はじめの一定期間、給付の対象外とするしくみです。<b>それ以外の病気・ケガは初日から保障されます。</b>毎年の更新で数値や検査受診が確認できれば、「半分給付」→「満額」へと段階的に解除されます。</div></details>
+
+    <details><summary>数値が悪くなったら、給付を断られますか？</summary><div class="a"><b>いいえ。</b>数値の悪化を理由に給付をお断りすることはありません（事実と異なる告知があった場合を除きます）。悪化した年は、保険料の割引と保障の“育ち”が一時停止するだけです。翌年、数値が戻れば再開します。</div></details>
+
+    <details><summary>加入してすぐに入院したら支払われますか？</summary><div class="a">加入直後の短い待機期間（30日程度を想定）と、原因疾患グループの不担保期間があります。また、<b>申込時点で予定されていた入院・手術、教育入院・検査のための入院は対象外</b>です。それ以外の急な病気・ケガによる入院は保障されます。</div></details>
+
+    <details><summary>掛金（保険料）はいくらですか？</summary><div class="a">現在策定中です。水準としては、<b>無選択型（告知なしで誰でも入れる保険）ほど高くなく、引受基準緩和型より少し高いレンジ</b>を前提にしています。確定次第、このページでお知らせします。</div></details>
+
+    <details><summary>ふつうの保険に入れるようになったら、乗り換えるべきですか？</summary><div class="a">ご判断は自由です。ただ、この共済は<b>続けた実績がそのまま価値になる</b>設計です——管理実績による割引、割戻し、満額まで育った保障は、乗り換えるとリセットされます。他の保険と比べたうえで、続ける方が有利と感じていただける設計を目指しています。</div></details>
+
+    <details><summary>これは「保険」ですか？</summary><div class="a">保険会社が販売する保険ではなく、<b>少人数で支え合う共済（互助）のしくみ</b>です。1グループ1,000人まで、給付には年間の上限があります。その「小ささ」こそが、保険会社がお断りする状況の方を柔軟にお迎えできる理由です。制度上の位置づけや詳細は、正式なご案内時に明示します。</div></details>
+
+    <details><summary>告知や提出データに誤りがあった場合はどうなりますか？</summary><div class="a">事実と異なる告知・データの提出があった場合、給付をお支払いできず、ご参加をお断りすることがあります。このしくみは「正直な情報を出してくれる方を、正当に評価する」ことで成り立っています。正確な情報こそが、みんなの掛金を守ります。</div></details>
+  </div>
+</section>
+
+<!-- S9 AGENTS -->
+<section class="agents" id="agents">
+  <div class="wrap">
+    <div class="agBox">
+      <span class="tag">代理店・募集人の皆さまへ</span>
+      <h2>「断って終わり」にしない、という選択肢</h2>
+      <p style="font-size:15px;color:var(--sub);margin-top:8px;">告知で謝絶になったお客さまに、いま提案できる商品はほとんどありません。本構想は、その空白を埋めるための“つなぎ”です。</p>
+      <div class="aggrid">
+        <div class="ag"><h4>想定するお客さま</h4><p>緩和型の告知「過去1〜2年以内の入院・手術」に該当して謝絶となった方。大腸ポリープ切除後・教育入院後・PCI後・がん術後6ヶ月〜など。</p></div>
+        <div class="ag"><h4>既存商品と競合しません</h4><p>1〜2年後、緩和型・通常型に入れる状態になったお客さまへの本命提案は、これまでどおり皆さまの役割です。本共済はそこまでの期間を保障し、毎年の健診提出が自然な再面談の機会になります。</p></div>
+        <div class="ag"><h4>掛金水準の前提</h4><p><b>無選択型ほど高くなく、緩和型よりは少し高い水準</b>を前提に策定中です。「いまはこれしか入れないが、割高すぎない」という説明が成り立つ価格帯を目指します。</p></div>
+      </div>
+      <div class="agcta">
+        <a class="btn" href="#contact">ヒアリングに協力する（15分）</a>
+        <p>現在、商品設計のために募集人の皆さまへのヒアリングを実施しています。「実際にどんな理由の謝絶が多いか」をぜひお聞かせください。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT / FOOTER -->
+<section id="contact" style="padding:56px 0;background:var(--tealL);">
+  <div class="wrap" style="text-align:center;">
+    <h2 style="margin-bottom:8px;">資料請求・ご相談</h2>
+    <p style="color:var(--sub);font-size:14.5px;margin-bottom:22px;">構想へのご意見・ヒアリングへのご協力も、こちらからお寄せください。</p>
+    <a class="btn" href="#" onclick="return false;">お問い合わせフォーム（準備中）</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>本ページは、商品構想の検証を目的としたコンセプト資料です。記載の内容・条件・名称・数値はすべて検討中であり、変更されることがあります。ご加入をお約束するものではありません。</p>
+    <p>© frich Inc. — P2P互助プラットフォーム ／ 企画協力：justInCase Technologies</p>
+  </div>
+</footer>
+
+</body>
+</html>
