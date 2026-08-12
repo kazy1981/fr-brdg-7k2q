@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow, noarchive">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2316233F'/%3E%3Cpath d='M9 40h9l5-11 7 20 6-27 5 18h14' fill='none' stroke='%230FA3B1' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
 <title>入院・手術のあとで、保険に断られたあなたへ ｜ frich（仮称・コンセプト検証中）</title>
 <style>
   :root{
@@ -74,6 +75,14 @@
   .ng ul{list-style:none;display:flex;flex-wrap:wrap;gap:8px 18px;}
   .ng li{font-size:13.5px;color:var(--ink);}
   .ng li::before{content:"✕ ";color:var(--red);font-weight:700;}
+
+  /* underwriting */
+  .uw .ugrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+  .ucard{background:#fff;border:1px solid var(--line);border-radius:16px;padding:26px;border-top:none;}
+  .ucard h3{font-size:17px;color:var(--navy);margin-bottom:10px;line-height:1.5;}
+  .ucard p{font-size:13.5px;color:var(--sub);}
+  .opt{margin-top:18px;background:var(--tealL);border-radius:12px;padding:14px 18px;font-size:13.5px;color:var(--ink);}
+  .opt b{color:var(--tealD);}
 
   /* steps */
   .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
@@ -153,7 +162,7 @@
     section{padding:52px 0;}
     h2{font-size:23px;}
     .hero .cols{grid-template-columns:1fr;gap:30px;}
-    .vgrid,.steps,.wgrid,.aggrid{grid-template-columns:1fr;}
+    .vgrid,.steps,.wgrid,.aggrid,.uw .ugrid{grid-template-columns:1fr;}
     .who2,.tgrid{grid-template-columns:1fr;}
     .hd .badge{display:none;}
   }
@@ -229,13 +238,36 @@
       </div>
     </div>
     <div class="ng">
-      <h4>対象にならない方（正直にお伝えします）</h4>
+      <h4>対象にならない方</h4>
       <ul>
         <li>いま、入院・手術・精密検査をすすめられている方（未実施のまま）</li>
         <li>がんの治療中の方</li>
         <li>人工透析を受けている方</li>
         <li>予定された入院・手術がある方</li>
       </ul>
+    </div>
+  </div>
+</section>
+
+<!-- S3.5 UNDERWRITING -->
+<section class="uw">
+  <div class="wrap">
+    <span class="eyebrow">UNDERWRITING</span>
+    <h2>審査の考え方 — データを出すほど、有利になります</h2>
+    <p class="lead">一般に、保険は情報を多く出すほど断られやすくなります。私たちは逆の設計です。</p>
+    <div class="ugrid">
+      <div class="ucard">
+        <h3>直近の健康診断の結果は必須です</h3>
+        <p>審査の出発点になります。お薬手帳、退院時の書類、検査結果があれば、あわせてご提出ください。健診を受けていない方には、まず受診をご案内します。</p>
+      </div>
+      <div class="ucard">
+        <h3>多いほど、正しく評価できます</h3>
+        <p>検査値の推移、通院・服薬の記録、活動量。多面的に見られるほど「いまは落ち着いている」ことを正確に評価できます。情報が少ない場合は、安全側の判定にならざるを得ません。</p>
+      </div>
+      <div class="ucard">
+        <h3>AIが多面的に査定します</h3>
+        <p>数値を横断的に読み、一つの検査値だけで機械的に判断しません。判定の基準は、国内外の診療ガイドラインや最新の臨床研究にもとづいて設計し、新しい知見が出れば見直していきます。</p>
+      </div>
     </div>
   </div>
 </section>
@@ -253,7 +285,7 @@
       </div>
       <div class="step"><span class="sn">STEP 2</span>
         <h3>毎年、数値で更新</h3>
-        <p>年に1回、健康診断の結果などをご提出いただきます。見る数値は原因の病気によって変わります（糖尿病ならHbA1c、心臓なら血圧やLDL、ポリープなら検査の受診）。<b>基準内なら保険料の割引が続き、不担保が「半分給付」→「満額」へと解除</b>されていきます。歩数・活動量など<b>“あるとよい情報”のご提出は任意</b>です——なくても不利にはなりませんが、あれば翌年度の更新にプラスに加味します。</p>
+        <p>年に1回、健康診断の結果などをご提出いただきます。見る数値は原因の病気によって変わります（糖尿病ならHbA1c、心臓なら血圧やLDL、ポリープなら検査の受診）。<b>基準内なら保険料の割引が続き、不担保が「半分給付」→「満額」へと解除</b>されていきます。</p>
       </div>
       <div class="step"><span class="sn">STEP 3</span>
         <h3>続けるほど、戻ってくる</h3>
@@ -284,7 +316,7 @@
           <li>心臓や脳の病気、糖尿病での入院</li>
           <li>大腸以外のがん</li>
         </ul>
-        <div class="kaijo"><b>解除の条件：</b>医師に指示された次回の大腸内視鏡検査を、時期どおりに受けていること。それだけです。</div>
+        <div class="kaijo"><b>解除の条件：</b>医師に指示された次回の大腸内視鏡検査を、時期どおりに受けていること。それだけです。<br><b>さらに：</b>体重や歩数などの記録。</div>
       </div>
 
       <div class="tcard">
@@ -298,7 +330,7 @@
           <li>虫垂炎・胆石など消化器の病気</li>
           <li>がん、心臓や脳の病気での入院</li>
         </ul>
-        <div class="kaijo"><b>解除の条件：</b>HbA1cが基準の範囲内で悪化していないこと、お薬と通院を続けていること、年1回の健診結果のご提出。</div>
+        <div class="kaijo"><b>解除の条件：</b>HbA1cが基準の範囲内で悪化していないこと、お薬と通院を続けていること、年1回の健診結果のご提出。<br><b>さらに：</b>歩数・体重・血糖の自己測定などの記録。</div>
       </div>
 
       <div class="tcard">
@@ -312,7 +344,7 @@
           <li>胃腸・肝臓など消化器の病気</li>
           <li>がん、脳の病気、糖尿病での入院</li>
         </ul>
-        <div class="kaijo"><b>解除の条件：</b>LDLコレステロールと血圧が基準内、処方されたお薬（抗血小板薬など）の継続、禁煙、再発がないこと。</div>
+        <div class="kaijo"><b>解除の条件：</b>LDLコレステロールと血圧が基準内、処方されたお薬（抗血小板薬など）の継続、禁煙、再発がないこと。<br><b>さらに：</b>家庭での血圧記録、歩数・運動などの活動量。</div>
       </div>
 
       <div class="tcard">
@@ -326,10 +358,11 @@
           <li>心臓や脳の病気、糖尿病での入院</li>
           <li>胆石・ヘルニアなど、がん以外のすべての病気</li>
         </ul>
-        <div class="kaijo"><b>解除の条件：</b>数値ではなく、医師の指示どおりに定期検査（画像・内視鏡など）を受け続けていること。更新のたびに「半分給付」→「満額」へ育ちます。<br><b>さらに：</b>歩数や運動などの活動量の記録も、ぜひお出しください（<b>任意・あるとよい情報</b>）。ご提出がなくても不利にはなりませんが、あれば翌年の更新時にプラスに総合的に加味します。大腸がんでは、運動が再発リスクを下げることが臨床試験で示されています。</div>
+        <div class="kaijo"><b>解除の条件：</b>数値ではなく、医師の指示どおりに定期検査（画像・内視鏡など）を受け続けていること。更新のたびに「半分給付」→「満額」へ育ちます。<br><b>さらに：</b>歩数など活動量の記録。大腸がんでは、運動が再発リスクを下げることが臨床試験で示されています。</div>
       </div>
 
     </div>
+    <p class="opt"><b>「さらに」の情報について：</b>ご提出は任意です。出していただかなくても不利にはなりませんが、あれば翌年の更新時にプラスに加味します。</p>
     <p class="note tsrc">件数の出典：厚生労働省NDBオープンデータ・患者調査、全国がん登録（2023年）、JROAD（2024年版）。対象外の範囲・期間・解除条件は現在検討中の設計案であり、変更されることがあります。</p>
   </div>
 </section>
@@ -377,7 +410,9 @@
 
     <details><summary>本当に入れますか？</summary><div class="a">「直近の入院・手術で他の保険に入れないこと」と「健康診断の結果などで現在の状態を示せること」の2つを満たす方が対象です。所定の審査があり、すべての方をお引き受けできるわけではありませんが、<b>病名や入院の事実だけを理由にお断りすることはしません</b>。</div></details>
 
-    <details><summary>診断書は必要ですか？</summary><div class="a">基本は<b>健康診断の結果とお薬手帳（服薬の記録）</b>です。心臓の治療後やがんの治療後など一部のケースでは、主治医に記入いただく簡単なフォーム1枚をお願いする場合があります。高額な診断書の取得を前提にはしません。健診を受けていない方は、まず健診の受診からご案内します。</div></details>
+    <details><summary>診断書は必要ですか？</summary><div class="a"><b>直近の健康診断の結果は必須です。</b>あわせてお薬手帳（服薬の記録）、退院時の書類や検査結果があればご提出ください。心臓の治療後やがんの治療後など一部のケースでは、主治医に記入いただく簡単なフォーム1枚をお願いする場合があります。高額な診断書の取得を前提にはしません。健診を受けていない方は、まず健診の受診からご案内します。</div></details>
+
+    <details><summary>AIが審査すると聞きましたが、機械的に断られませんか？</summary><div class="a">むしろ逆です。人が数問の告知だけで判断すると「入院歴あり＝お断り」になりがちですが、AIは<b>検査値の推移・服薬や通院の記録・活動量を横断して評価</b>できるため、「病名はあるが、いまは落ち着いている」という状態を拾えます。判定の基準は国内外の診療ガイドラインや最新の臨床研究をもとに設計し、新しい知見が出れば見直します。最終的な引受の可否は人の確認を経て決定します。</div></details>
 
     <details><summary>「不担保」とはなんですか？いつ外れますか？</summary><div class="a">原因になった病気のグループ（例：大腸ポリープなら「大腸の病気」）だけを、はじめの一定期間、給付の対象外とするしくみです。<b>それ以外の病気・ケガは初日から保障されます。</b>毎年の更新で数値や検査受診が確認できれば、「半分給付」→「満額」へと段階的に解除されます。</div></details>
 
@@ -408,7 +443,7 @@
         <div class="ag"><h4>掛金水準の前提</h4><p><b>無選択型ほど高くなく、緩和型よりは少し高い水準</b>を前提に策定中です。「いまはこれしか入れないが、割高すぎない」という説明が成り立つ価格帯を目指します。</p></div>
       </div>
       <div class="agcta">
-        <a class="btn" href="#contact">ヒアリングに協力する（15分）</a>
+        <a class="btn" href="https://forms.gle/oAy48GTCmM5uCgfT7" target="_blank" rel="noopener">ヒアリング・販売協力のご登録</a>
         <p>現在、商品設計のために募集人の皆さまへのヒアリングを実施しています。「実際にどんな理由の謝絶が多いか」をぜひお聞かせください。</p>
       </div>
     </div>
@@ -420,14 +455,14 @@
   <div class="wrap" style="text-align:center;">
     <h2 style="margin-bottom:8px;">資料請求・ご相談</h2>
     <p style="color:var(--sub);font-size:14.5px;margin-bottom:22px;">構想へのご意見・ヒアリングへのご協力も、こちらからお寄せください。</p>
-    <a class="btn" href="#" onclick="return false;">お問い合わせフォーム（準備中）</a>
+    <a class="btn" href="https://forms.gle/oAy48GTCmM5uCgfT7" target="_blank" rel="noopener">フォームで連絡する</a>
   </div>
 </section>
 
 <footer>
   <div class="wrap">
     <p>本ページは、商品構想の検証を目的としたコンセプト資料です。記載の内容・条件・名称・数値はすべて検討中であり、変更されることがあります。ご加入をお約束するものではありません。</p>
-    <p>© frich Inc. — P2P互助プラットフォーム ／ 企画協力：justInCase Technologies</p>
+    <p>© frich Inc. — P2P互助プラットフォーム ／ 企画協力：justInCaseTechnologies</p>
   </div>
 </footer>
 
