@@ -19,11 +19,34 @@
   html{scroll-behavior:smooth;}
   body{font-family:"Hiragino Kaku Gothic ProN","Hiragino Sans","Noto Sans JP","Yu Gothic",Meiryo,sans-serif;color:var(--ink);background:var(--white);line-height:1.75;font-size:16px;}
   .wrap{max-width:1060px;margin:0 auto;padding:0 20px;}
+  section[id]{scroll-margin-top:76px;}
+  .lead{max-width:74ch;}
+  a:focus-visible,summary:focus-visible{outline:3px solid #7FD7E4;outline-offset:3px;border-radius:6px;}
   section{padding:72px 0;}
   h2{font-size:28px;line-height:1.45;color:var(--navy);margin-bottom:10px;letter-spacing:.01em;}
   .lead{color:var(--sub);font-size:15px;margin-bottom:36px;}
   .eyebrow{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.18em;color:var(--teal);margin-bottom:10px;}
   .note{font-size:12px;color:var(--mute);}
+  .ic{width:22px;height:22px;flex:0 0 auto;stroke:currentColor;fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round;}
+  .icwrap{width:40px;height:40px;border-radius:11px;display:flex;align-items:center;justify-content:center;margin-bottom:14px;}
+  .icwrap.teal{background:var(--tealL);color:var(--tealD);}
+  .icwrap.blue{background:var(--blueL);color:var(--blue);}
+  .icwrap.green{background:var(--greenL);color:var(--green);}
+  .icwrap.amber{background:var(--amberL);color:var(--amber);}
+  .hrule{height:1px;background:var(--line);border:0;max-width:1060px;margin:0 auto;}
+  .ttl{display:flex;align-items:center;gap:12px;}
+  .ttl .icwrap{margin-bottom:0;width:34px;height:34px;border-radius:9px;}
+  .ttl .ic{width:19px;height:19px;}
+
+  /* mobile sticky cta */
+  .mcta{display:none;}
+  @media(max-width:840px){
+    .mcta{display:block;position:fixed;left:0;right:0;bottom:0;background:rgba(255,255,255,.97);
+      border-top:1px solid var(--line);padding:10px 16px calc(10px + env(safe-area-inset-bottom));z-index:60;
+      box-shadow:0 -4px 18px rgba(22,35,63,.08);}
+    .mcta a{display:block;text-align:center;}
+    body{padding-bottom:74px;}
+  }
 
   /* header */
   header{position:sticky;top:0;background:rgba(255,255,255,.95);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);z-index:50;}
@@ -35,6 +58,7 @@
   .btn{display:inline-block;background:var(--teal);color:#fff;font-weight:700;border-radius:999px;padding:10px 22px;text-decoration:none;font-size:14px;transition:opacity .15s;}
   .btn:hover{opacity:.85;}
   .btn.ghost{background:transparent;color:var(--navy);border:1.5px solid var(--line);}
+  .btn.big{font-size:15.5px;padding:15px 34px;box-shadow:0 6px 20px rgba(15,163,177,.28);}
 
   /* hero */
   .hero{background:linear-gradient(160deg,var(--navy) 0%,#1D2F52 60%,#234066 100%);color:#fff;padding:84px 0 72px;}
@@ -42,6 +66,9 @@
   .hero h1{font-size:clamp(28px,4.6vw,44px);line-height:1.4;letter-spacing:.01em;margin-bottom:20px;}
   .hero p.sub{color:#C6D2E8;font-size:clamp(15px,1.8vw,18px);max-width:620px;margin-bottom:30px;}
   .hero .cols{display:grid;grid-template-columns:1.25fr 1fr;gap:44px;align-items:center;}
+  .hero .facts{list-style:none;display:flex;flex-wrap:wrap;gap:8px 10px;margin-bottom:26px;}
+  .hero .facts li{font-size:12.5px;color:#DDE6F5;background:rgba(255,255,255,.09);
+    border:1px solid rgba(255,255,255,.16);border-radius:999px;padding:5px 14px;}
   .hero .ctas{display:flex;gap:12px;flex-wrap:wrap;}
   .hero .btn.ghost{color:#fff;border-color:rgba(255,255,255,.4);}
   .heroCard{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);border-radius:16px;padding:26px;}
@@ -61,6 +88,8 @@
   .voice p{font-size:14.5px;color:var(--ink);}
   .voice .who{font-size:12px;color:var(--mute);margin-top:12px;}
   .voice::before{content:"“";font-size:34px;line-height:0;color:var(--teal);font-weight:800;display:block;margin:10px 0 2px;}
+  .voice .who{display:flex;align-items:center;gap:6px;}
+  .voice .who .ic{width:14px;height:14px;color:var(--mute);stroke-width:2;}
   .punch{margin-top:30px;background:var(--navy);color:#fff;border-radius:14px;padding:20px 26px;font-size:15.5px;}
   .punch b{color:#7FD7E4;}
 
@@ -68,6 +97,8 @@
   .who2{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:18px;}
   .cond{background:var(--tealL);border:1px solid #BCE3E8;border-radius:14px;padding:24px;}
   .cond .n{font-weight:800;color:var(--tealD);font-size:13px;letter-spacing:.08em;}
+  .cond .icwrap{background:rgba(15,163,177,.14);color:var(--tealD);width:36px;height:36px;border-radius:10px;margin-bottom:10px;}
+  .cond .icwrap .ic{width:20px;height:20px;}
   .cond h3{font-size:18px;color:var(--navy);margin:6px 0 8px;line-height:1.5;}
   .cond p{font-size:14px;color:var(--sub);}
   .ng{background:var(--redL);border:1px solid #EAC8C2;border-radius:14px;padding:20px 24px;}
@@ -75,6 +106,9 @@
   .ng ul{list-style:none;display:flex;flex-wrap:wrap;gap:8px 18px;}
   .ng li{font-size:13.5px;color:var(--ink);}
   .ng li::before{content:"✕ ";color:var(--red);font-weight:700;}
+  .ng li{display:flex;align-items:flex-start;gap:7px;}
+  .ng li::before{content:none;}
+  .ng li .ic{width:16px;height:16px;color:var(--red);margin-top:4px;stroke-width:2.4;}
 
   /* underwriting */
   .uw .ugrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
@@ -88,10 +122,12 @@
   .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
   .step{background:#fff;border:1px solid var(--line);border-radius:16px;padding:26px;position:relative;}
   .step .sn{position:absolute;top:-14px;left:22px;background:var(--teal);color:#fff;font-weight:800;font-size:12px;border-radius:999px;padding:4px 14px;letter-spacing:.06em;}
-  .step h3{font-size:18px;color:var(--navy);margin:8px 0 10px;line-height:1.5;}
+  .step .icwrap{margin-top:10px;}
+  .step h3{font-size:18px;color:var(--navy);margin:4px 0 10px;line-height:1.5;}
   .step p{font-size:14px;color:var(--sub);}
   .step p b{color:var(--ink);}
   .promise{margin-top:26px;background:var(--greenL);border:1px solid #BFE0CD;border-radius:14px;padding:18px 24px;font-size:14.5px;color:var(--ink);}
+  .promise .pico{color:var(--green);vertical-align:-5px;margin-right:8px;display:inline-block;}
   .promise b{color:var(--green);}
 
   /* target cards */
@@ -106,8 +142,9 @@
   .tt.k{color:var(--tealD);}
   .tcard ul{list-style:none;margin-bottom:14px;}
   .tcard li{font-size:13.5px;color:var(--ink);padding-left:1.2em;text-indent:-1.2em;line-height:1.65;}
-  .tcard .w li::before{content:"◻ ";color:var(--amber);}
-  .tcard .o li::before{content:"✓ ";color:var(--green);font-weight:700;}
+  .tcard li{display:flex;align-items:flex-start;gap:7px;padding-left:0;text-indent:0;margin-bottom:2px;}
+  .tcard .w li .ic{width:15px;height:15px;color:var(--amber);margin-top:4px;stroke-width:2.4;}
+  .tcard .o li .ic{width:15px;height:15px;color:var(--green);margin-top:4px;stroke-width:2.6;}
   .kaijo{background:var(--tealL);border-radius:10px;padding:12px 14px;font-size:13px;color:var(--ink);margin-top:auto;}
   .kaijo b{color:var(--tealD);}
   .tsrc{margin-top:18px;}
@@ -130,6 +167,7 @@
   .wake .lead{color:#AFC3E8;}
   .wgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
   .wcard{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);border-radius:14px;padding:24px;}
+  .wcard .icwrap{background:rgba(127,215,228,.14);color:#7FD7E4;}
   .wcard h3{font-size:16.5px;color:#7FD7E4;margin-bottom:8px;}
   .wcard p{font-size:13.5px;color:#D5DEF0;}
   .wnote{margin-top:22px;font-size:12.5px;color:#8FA2C4;}
@@ -138,8 +176,10 @@
   details{border:1px solid var(--line);border-radius:12px;margin-bottom:12px;background:#fff;overflow:hidden;}
   summary{cursor:pointer;padding:18px 22px;font-weight:700;font-size:15px;color:var(--navy);list-style:none;position:relative;padding-right:46px;}
   summary::-webkit-details-marker{display:none;}
-  summary::after{content:"＋";position:absolute;right:20px;top:50%;transform:translateY(-50%);color:var(--teal);font-weight:400;font-size:18px;}
+  summary::after{content:"＋";position:absolute;right:20px;top:50%;transform:translateY(-50%);color:var(--teal);font-weight:400;font-size:18px;transition:transform .15s;}
+  details[open] summary{color:var(--tealD);}
   details[open] summary::after{content:"−";}
+  details[open]{border-color:#BCE3E8;box-shadow:0 2px 10px rgba(15,163,177,.07);}
   details .a{padding:0 22px 18px;font-size:14px;color:var(--sub);}
   details .a b{color:var(--ink);}
 
@@ -150,6 +190,8 @@
   .agBox h2{font-size:24px;}
   .aggrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:24px 0;}
   .ag{background:var(--bg);border-radius:12px;padding:18px 20px;}
+  .ag .icwrap{width:34px;height:34px;border-radius:9px;margin-bottom:10px;}
+  .ag .icwrap .ic{width:19px;height:19px;}
   .ag h4{font-size:14px;color:var(--navy);margin-bottom:6px;}
   .ag p{font-size:13px;color:var(--sub);}
   .agcta{display:flex;gap:14px;align-items:center;flex-wrap:wrap;}
@@ -160,6 +202,8 @@
 
   @media(max-width:840px){
     section{padding:52px 0;}
+    .btn{padding:13px 22px;}
+    .hero{padding:60px 0 56px;}
     h2{font-size:23px;}
     .hero .cols{grid-template-columns:1fr;gap:30px;}
     .vgrid,.steps,.wgrid,.aggrid,.uw .ugrid{grid-template-columns:1fr;}
@@ -177,14 +221,20 @@
     <div class="cta"><a class="btn" href="#contact">資料請求・ご相談</a></div>
   </div>
 </header>
+<div class="mcta"><a class="btn" href="https://forms.gle/oAy48GTCmM5uCgfT7" target="_blank" rel="noopener">資料請求・ご相談はこちら</a></div>
 
 <!-- S1 HERO -->
 <div class="hero">
   <div class="wrap cols">
     <div>
-      <span class="eyebrow">CONCEPT</span>
+      <span class="eyebrow">コンセプト</span>
       <h1>入院・手術のあとで、<br>保険に断られたあなたへ。</h1>
       <p class="sub">治療は終わった。数値も戻っている。それでも1〜2年は、どの保険にも入れない——その“空白の期間”を支える、新しいたすけあいです。</p>
+      <ul class="facts">
+        <li>直近1〜2年の入院・手術がある方が対象</li>
+        <li>原因の病気以外は初日から保障</li>
+        <li>毎年の数値で、保障が育つ</li>
+      </ul>
       <div class="ctas">
         <a class="btn" href="#target">対象になるか確かめる</a>
         <a class="btn ghost" href="#agents">代理店・募集人の方はこちら</a>
@@ -207,13 +257,13 @@
 <!-- S2 VOICES -->
 <section class="voices">
   <div class="wrap">
-    <span class="eyebrow">VOICES</span>
+    <span class="eyebrow">お客さまの声</span>
     <h2>こんな経験はありませんか</h2>
     <p class="lead">医療保険の告知には「過去1〜2年以内の入院・手術」という質問があります。理由を問わず、該当すればほとんどの場合お断りです。</p>
     <div class="vgrid">
-      <div class="voice"><p>大腸のポリープを取っただけなのに、「2年間は入れません」と言われた。</p><div class="who">50代・男性（内視鏡でポリープ切除）</div></div>
-      <div class="voice"><p>教育入院で生活を立て直して、数値はむしろ良くなった。それでも断られた。</p><div class="who">50代・男性（糖尿病の教育入院）</div></div>
-      <div class="voice"><p>がんの手術から1年。再発もなく経過は良好なのに、「あと4年お待ちください」。</p><div class="who">40代・女性（乳がん・治療完了）</div></div>
+      <div class="voice"><p>大腸のポリープを取っただけなのに、「2年間は入れません」と言われた。</p><div class="who"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8.2" r="3.3"/><path d="M5.2 19.6c0-3.5 3-5.9 6.8-5.9s6.8 2.4 6.8 5.9"/></svg>50代・男性（内視鏡でポリープ切除）</div></div>
+      <div class="voice"><p>教育入院で生活を立て直して、数値はむしろ良くなった。それでも断られた。</p><div class="who"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8.2" r="3.3"/><path d="M5.2 19.6c0-3.5 3-5.9 6.8-5.9s6.8 2.4 6.8 5.9"/></svg>50代・男性（糖尿病の教育入院）</div></div>
+      <div class="voice"><p>がんの手術から1年。再発もなく経過は良好なのに、「あと4年お待ちください」。</p><div class="who"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8.2" r="3.3"/><path d="M5.2 19.6c0-3.5 3-5.9 6.8-5.9s6.8 2.4 6.8 5.9"/></svg>40代・女性（乳がん・治療完了）</div></div>
     </div>
     <div class="punch">断られた理由は、いまのあなたの健康状態ではなく、<b>「直近に入院・手術をした」という事実だけ</b>かもしれません。私たちは、その先を見ます。</div>
   </div>
@@ -222,17 +272,17 @@
 <!-- S3 WHO -->
 <section id="target">
   <div class="wrap">
-    <span class="eyebrow">FOR WHOM</span>
+    <span class="eyebrow">対象となる方</span>
     <h2>誰のための、たすけあいか</h2>
     <p class="lead">次の2つにあてはまる方のための共済です。</p>
     <div class="who2">
       <div class="cond">
-        <div class="n">条件 1</div>
+        <div class="icwrap teal"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.6 4.6l14.8 14.8"/><circle cx="12" cy="12" r="8.6"/></svg></div><div class="n">条件 1</div>
         <h3>医療保険に入りたくても、入れない方</h3>
         <p>直近1〜2年以内の入院・手術が理由で、通常の医療保険にも、持病があっても入りやすい「引受基準緩和型」にも入れなかった方。</p>
       </div>
       <div class="cond">
-        <div class="n">条件 2</div>
+        <div class="icwrap teal"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19v-6M10 19V6M15 19v-9M20 19v-4"/></svg></div><div class="n">条件 2</div>
         <h3>「いまは問題ない」を、数字で示せる方</h3>
         <p>治療を終え、ご自身では健康面に問題ないと感じている——そして健康診断の結果やお薬手帳など、それを裏づける<b>客観的な情報</b>をお持ちの方。私たちは病名ではなく、その数字と管理の事実を見ます。</p>
       </div>
@@ -240,10 +290,10 @@
     <div class="ng">
       <h4>対象にならない方</h4>
       <ul>
-        <li>いま、入院・手術・精密検査をすすめられている方（未実施のまま）</li>
-        <li>がんの治療中の方</li>
-        <li>人工透析を受けている方</li>
-        <li>予定された入院・手術がある方</li>
+        <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.6"/><path d="M9.3 9.3l5.4 5.4M14.7 9.3l-5.4 5.4"/></svg>いま、入院・手術・精密検査をすすめられている方（未実施のまま）</li>
+        <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.6"/><path d="M9.3 9.3l5.4 5.4M14.7 9.3l-5.4 5.4"/></svg>がんの治療中の方</li>
+        <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.6"/><path d="M9.3 9.3l5.4 5.4M14.7 9.3l-5.4 5.4"/></svg>人工透析を受けている方</li>
+        <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.6"/><path d="M9.3 9.3l5.4 5.4M14.7 9.3l-5.4 5.4"/></svg>予定された入院・手術がある方</li>
       </ul>
     </div>
   </div>
@@ -252,20 +302,20 @@
 <!-- S3.5 UNDERWRITING -->
 <section class="uw">
   <div class="wrap">
-    <span class="eyebrow">UNDERWRITING</span>
+    <span class="eyebrow">審査について</span>
     <h2>審査の考え方 — データを出すほど、有利になります</h2>
     <p class="lead">一般に、保険は情報を多く出すほど断られやすくなります。私たちは逆の設計です。</p>
     <div class="ugrid">
       <div class="ucard">
-        <h3>直近の健康診断の結果は必須です</h3>
+        <div class="icwrap blue"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M9.5 4h5v2.5h-5z"/><path d="M8 5.2H5.5v14.3h13V5.2H16"/><path d="M8.5 11h7M8.5 15h4.5"/></svg></div><h3>直近の健康診断の結果は必須です</h3>
         <p>審査の出発点になります。お薬手帳、退院時の書類、検査結果があれば、あわせてご提出ください。健診を受けていない方には、まず受診をご案内します。</p>
       </div>
       <div class="ucard">
-        <h3>多いほど、正しく評価できます</h3>
+        <div class="icwrap blue"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19v-6M10 19V6M15 19v-9M20 19v-4"/></svg></div><h3>多いほど、正しく評価できます</h3>
         <p>検査値の推移、通院・服薬の記録、活動量。多面的に見られるほど「いまは落ち着いている」ことを正確に評価できます。情報が少ない場合は、安全側の判定にならざるを得ません。</p>
       </div>
       <div class="ucard">
-        <h3>AIが多面的に査定します</h3>
+        <div class="icwrap blue"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="7" width="10" height="10" rx="2.2"/><path d="M10 3.2v3.3M14 3.2v3.3M10 17.5v3.3M14 17.5v3.3M3.2 10h3.3M3.2 14h3.3M17.5 10h3.3M17.5 14h3.3"/></svg></div><h3>AIが多面的に査定します</h3>
         <p>数値を横断的に読み、一つの検査値だけで機械的に判断しません。判定の基準は、国内外の診療ガイドラインや最新の臨床研究にもとづいて設計し、新しい知見が出れば見直していきます。</p>
       </div>
     </div>
@@ -275,31 +325,31 @@
 <!-- S4 HOW -->
 <section style="background:var(--bg);">
   <div class="wrap">
-    <span class="eyebrow">HOW IT WORKS</span>
+    <span class="eyebrow">しくみ</span>
     <h2>基本的なしくみ — 3つのステップ</h2>
     <p class="lead">「審査がゆるい」のではありません。<b>ちゃんと見るから、入れる</b>。それがこのしくみです。</p>
     <div class="steps">
       <div class="step"><span class="sn">STEP 1</span>
-        <h3>いま、入る</h3>
+        <div class="icwrap teal"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 4H19v16h-5.5"/><path d="M4 12h9"/><path d="M9.5 8.2L13.3 12l-3.8 3.8"/></svg></div><h3>いま、入る</h3>
         <p>入院・手術からの経過が短くても、健康診断の結果などを確認して引き受けます。<b>原因になった病気のグループだけ</b>一定期間保障の対象外（不担保）とし、<b>それ以外の病気・ケガは初日から保障</b>します。</p>
       </div>
       <div class="step"><span class="sn">STEP 2</span>
-        <h3>毎年、数値で更新</h3>
+        <div class="icwrap teal"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.4-5.7"/><path d="M20.2 4.2v4.2h-4.2"/></svg></div><h3>毎年、数値で更新</h3>
         <p>年に1回、健康診断の結果などをご提出いただきます。見る数値は原因の病気によって変わります（糖尿病ならHbA1c、心臓なら血圧やLDL、ポリープなら検査の受診）。<b>基準内なら保険料の割引が続き、不担保が「半分給付」→「満額」へと解除</b>されていきます。</p>
       </div>
       <div class="step"><span class="sn">STEP 3</span>
-        <h3>続けるほど、戻ってくる</h3>
+        <div class="icwrap teal"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="6.8" rx="7" ry="2.9"/><path d="M5 6.8v4.7c0 1.6 3.1 2.9 7 2.9s7-1.3 7-2.9V6.8"/><path d="M5 11.5v4.7c0 1.6 3.1 2.9 7 2.9s7-1.3 7-2.9v-4.7"/></svg></div><h3>続けるほど、戻ってくる</h3>
         <p>みんなで支え合う「わけわけ」のしくみ。給付が少なかった年は、余った掛金の一部が<b>割戻しとして戻ります</b>。反対に給付が多かった年は、割戻しが出ない・翌年の掛金が見直されるなど、<b>参加者どうし（しくみによっては取扱代理店も）で一定のリスクを分かち合う</b>可能性があります——それが「たすけあい」の意味です。管理の実績、育った保障、割戻し。続けた分だけ積み上がります。</p>
       </div>
     </div>
-    <div class="promise"><b>大切な約束：</b>数値が悪くなっても、それを理由に給付をお断りすることはありません。割引と保障の“育ち”が一時停止するだけです。ペナルティではなく、ご褒美で続くしくみにしています。</div>
+    <div class="promise"><span class="pico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.4l7.2 3.1v5.9c0 4.1-2.9 7.5-7.2 8.9-4.3-1.4-7.2-4.8-7.2-8.9V6.5z"/><path d="M9.4 12.3l1.9 1.9 3.6-3.9"/></svg></span><b>大切な約束：</b>数値が悪くなっても、それを理由に給付をお断りすることはありません。割引と保障の“育ち”が一時停止するだけです。ペナルティではなく、ご褒美で続くしくみにしています。</div>
   </div>
 </section>
 
 <!-- S5 TARGETS -->
 <section class="targets">
   <div class="wrap">
-    <span class="eyebrow">CASES</span>
+    <span class="eyebrow">対象事例</span>
     <h2>対象になる方の例</h2>
     <p class="lead">代表的な4つのケースです。「対象外になるもの」と「初日から保障されるもの」を、具体的にご覧ください。</p>
     <div class="tgrid">
@@ -307,14 +357,14 @@
       <div class="tcard">
         <h3>大腸ポリープ・内視鏡治療のあと</h3>
         <span class="scale">入院を伴うものだけで年間34万件 — 手術件数で全国最多クラス</span>
-        <div class="tt w">◻ はじめの6ヶ月、対象外になるもの</div>
-        <ul class="w"><li>大腸のポリープ・腺腫・大腸がん、その内視鏡治療や手術による入院</li></ul>
-        <div class="tt o">✓ 初日から保障されるもの（例）</div>
+        <div class="tt w">はじめの6ヶ月、対象外になるもの</div>
+        <ul class="w"><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="4.6" y="4.6" width="14.8" height="14.8" rx="3.2"/></svg>大腸のポリープ・腺腫・大腸がん、その内視鏡治療や手術による入院</li></ul>
+        <div class="tt o">初日から保障されるもの（例）</div>
         <ul class="o">
-          <li>肺炎・インフルエンザでの入院</li>
-          <li>骨折・ケガの手術、虫垂炎、胆石</li>
-          <li>心臓や脳の病気、糖尿病での入院</li>
-          <li>大腸以外のがん</li>
+          <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 12.6l4.8 4.8L19.5 7.2"/></svg>肺炎・インフルエンザでの入院</li>
+          <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 12.6l4.8 4.8L19.5 7.2"/></svg>骨折・ケガの手術、虫垂炎、胆石</li>
+          <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 12.6l4.8 4.8L19.5 7.2"/></svg>心臓や脳の病気、糖尿病での入院</li>
+          <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 12.6l4.8 4.8L19.5 7.2"/></svg>大腸以外のがん</li>
         </ul>
         <div class="kaijo"><b>解除の条件：</b>医師に指示された次回の大腸内視鏡検査を、時期どおりに受けていること。それだけです。<br><b>さらに：</b>体重や歩数などの記録。</div>
       </div>
@@ -322,13 +372,13 @@
       <div class="tcard">
         <h3>糖尿病の教育入院・血糖調整入院のあと</h3>
         <span class="scale">糖尿病で治療中の方は全国552万人</span>
-        <div class="tt w">◻ はじめの12ヶ月、対象外になるもの</div>
-        <ul class="w"><li>糖尿病と、その合併症（腎症・網膜症・神経障害・足病変、低血糖・高血糖による昏睡など）での入院</li></ul>
-        <div class="tt o">✓ 初日から保障されるもの（例）</div>
+        <div class="tt w">はじめの12ヶ月、対象外になるもの</div>
+        <ul class="w"><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="4.6" y="4.6" width="14.8" height="14.8" rx="3.2"/></svg>糖尿病と、その合併症（腎症・網膜症・神経障害・足病変、低血糖・高血糖による昏睡など）での入院</li></ul>
+        <div class="tt o">初日から保障されるもの（例）</div>
         <ul class="o">
-          <li>肺炎での入院、骨折・ケガの手術</li>
-          <li>虫垂炎・胆石など消化器の病気</li>
-          <li>がん、心臓や脳の病気での入院</li>
+          <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 12.6l4.8 4.8L19.5 7.2"/></svg>肺炎での入院、骨折・ケガの手術</li>
+          <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 12.6l4.8 4.8L19.5 7.2"/></svg>虫垂炎・胆石など消化器の病気</li>
+          <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 12.6l4.8 4.8L19.5 7.2"/></svg>がん、心臓や脳の病気での入院</li>
         </ul>
         <div class="kaijo"><b>解除の条件：</b>HbA1cが基準の範囲内で悪化していないこと、お薬と通院を続けていること、年1回の健診結果のご提出。<br><b>さらに：</b>歩数・体重・血糖の自己測定などの記録。</div>
       </div>
@@ -336,13 +386,13 @@
       <div class="tcard">
         <h3>心臓カテーテル治療（PCI）のあと</h3>
         <span class="scale">カテーテル治療は年間24.5万件</span>
-        <div class="tt w">◻ はじめの12ヶ月、対象外になるもの</div>
-        <ul class="w"><li>狭心症・心筋梗塞など冠動脈の病気、その再治療（再カテーテル・バイパス手術）、心不全での入院</li></ul>
-        <div class="tt o">✓ 初日から保障されるもの（例）</div>
+        <div class="tt w">はじめの12ヶ月、対象外になるもの</div>
+        <ul class="w"><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="4.6" y="4.6" width="14.8" height="14.8" rx="3.2"/></svg>狭心症・心筋梗塞など冠動脈の病気、その再治療（再カテーテル・バイパス手術）、心不全での入院</li></ul>
+        <div class="tt o">初日から保障されるもの（例）</div>
         <ul class="o">
-          <li>肺炎での入院、骨折・ケガの手術</li>
-          <li>胃腸・肝臓など消化器の病気</li>
-          <li>がん、脳の病気、糖尿病での入院</li>
+          <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 12.6l4.8 4.8L19.5 7.2"/></svg>肺炎での入院、骨折・ケガの手術</li>
+          <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 12.6l4.8 4.8L19.5 7.2"/></svg>胃腸・肝臓など消化器の病気</li>
+          <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 12.6l4.8 4.8L19.5 7.2"/></svg>がん、脳の病気、糖尿病での入院</li>
         </ul>
         <div class="kaijo"><b>解除の条件：</b>LDLコレステロールと血圧が基準内、処方されたお薬（抗血小板薬など）の継続、禁煙、再発がないこと。<br><b>さらに：</b>家庭での血圧記録、歩数・運動などの活動量。</div>
       </div>
@@ -350,13 +400,13 @@
       <div class="tcard">
         <h3>がんの手術のあと（治療完了から6ヶ月〜）</h3>
         <span class="scale">がんと診断される方は年間99万人 — うち現役世代が約20万人</span>
-        <div class="tt w">◻ はじめの24ヶ月、対象外になるもの（段階的に解除）</div>
-        <ul class="w"><li>すべてのがん（再発・転移・新たながん）による入院・手術</li></ul>
-        <div class="tt o">✓ 初日から保障されるもの（例）</div>
+        <div class="tt w">はじめの24ヶ月、対象外になるもの（段階的に解除）</div>
+        <ul class="w"><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="4.6" y="4.6" width="14.8" height="14.8" rx="3.2"/></svg>すべてのがん（再発・転移・新たながん）による入院・手術</li></ul>
+        <div class="tt o">初日から保障されるもの（例）</div>
         <ul class="o">
-          <li>肺炎での入院、骨折・ケガの手術</li>
-          <li>心臓や脳の病気、糖尿病での入院</li>
-          <li>胆石・ヘルニアなど、がん以外のすべての病気</li>
+          <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 12.6l4.8 4.8L19.5 7.2"/></svg>肺炎での入院、骨折・ケガの手術</li>
+          <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 12.6l4.8 4.8L19.5 7.2"/></svg>心臓や脳の病気、糖尿病での入院</li>
+          <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 12.6l4.8 4.8L19.5 7.2"/></svg>胆石・ヘルニアなど、がん以外のすべての病気</li>
         </ul>
         <div class="kaijo"><b>解除の条件：</b>数値ではなく、医師の指示どおりに定期検査（画像・内視鏡など）を受け続けていること。更新のたびに「半分給付」→「満額」へ育ちます。<br><b>さらに：</b>歩数など活動量の記録。大腸がんでは、運動が再発リスクを下げることが臨床試験で示されています。</div>
       </div>
@@ -370,7 +420,7 @@
 <!-- S6 PRICE -->
 <section>
   <div class="wrap">
-    <span class="eyebrow">PRICING POLICY</span>
+    <span class="eyebrow">掛金について</span>
     <h2>掛金（保険料）の考え方</h2>
     <p class="lead">具体的な掛金は、現在策定中です。先に「水準の考え方」だけ、はっきりお伝えします。</p>
     <div class="ladder">
@@ -389,13 +439,13 @@
 <!-- S7 WAKEWAKE -->
 <section class="wake">
   <div class="wrap">
-    <span class="eyebrow" style="color:#7FD7E4;">P2P MUTUAL AID</span>
+    <span class="eyebrow" style="color:#7FD7E4;">たすけあいのしくみ</span>
     <h2>「わけわけ」— みんなで支え合い、余ったら戻す</h2>
     <p class="lead">これは保険会社の商品ではなく、同じ経験をした人どうしが少人数で支え合う共済（たすけあい）のしくみです。</p>
     <div class="wgrid">
-      <div class="wcard"><h3>集めて、支払う</h3><p>参加者の掛金から、入院された方への給付をお支払いします。給付には年間の上限を設け、みんなの掛金を守ります。</p></div>
-      <div class="wcard"><h3>余ったら、戻す</h3><p>給付が少なかった年は、余った掛金の一部を参加者に割戻します。掛け捨てで終わらない可能性がある、それがこのしくみの持ち味です。</p></div>
-      <div class="wcard"><h3>小さいから、できる</h3><p>1つのグループは1,000人まで。この「小ささ」こそが、大きな保険会社にはできない柔軟な引受を可能にしています。</p></div>
+      <div class="wcard"><div class="icwrap teal"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="9.2" cy="8" r="3.1"/><path d="M2.8 19c0-3.2 2.9-5.6 6.4-5.6S15.6 15.8 15.6 19"/><path d="M16.2 5.4a3 3 0 0 1 0 5.5"/><path d="M18.2 13.4c2 .7 3.3 2.2 3.3 4.2"/></svg></div><h3>集めて、支払う</h3><p>参加者の掛金から、入院された方への給付をお支払いします。給付には年間の上限を設け、みんなの掛金を守ります。</p></div>
+      <div class="wcard"><div class="icwrap teal"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="3.6" y="9.2" width="16.8" height="10.6" rx="2"/><path d="M3.6 13.2h16.8M12 9.2v10.6"/><path d="M12 9.2C11 6.8 9.9 5.8 8.6 5.8A2 2 0 0 0 8.4 9.2zM12 9.2c1-2.4 2.1-3.4 3.4-3.4a2 2 0 0 1 .2 3.4z"/></svg></div><h3>余ったら、戻す</h3><p>給付が少なかった年は、余った掛金の一部を参加者に割戻します。掛け捨てで終わらない可能性がある、それがこのしくみの持ち味です。</p></div>
+      <div class="wcard"><div class="icwrap teal"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3.4"/><circle cx="12" cy="12" r="8.4" stroke-dasharray="2.4 3.2"/></svg></div><h3>小さいから、できる</h3><p>1つのグループは1,000人まで。この「小ささ」こそが、大きな保険会社にはできない柔軟な引受を可能にしています。</p></div>
     </div>
     <p class="wnote">※ 運営は、P2P互助プラットフォームを手がけるfrich株式会社（規制サンドボックス特例認定・2020年）を予定しています。</p>
   </div>
@@ -404,9 +454,9 @@
 <!-- S8 FAQ -->
 <section>
   <div class="wrap">
-    <span class="eyebrow">FAQ</span>
+    <span class="eyebrow">よくあるご質問</span>
     <h2>よくある質問</h2>
-    <p class="lead" style="margin-bottom:26px;">検討中の構想のため、内容は変わる可能性があります。</p>
+    <p class="lead" style="margin-bottom:26px;">各項目をタップすると回答が開きます。検討中の構想のため、内容は変わる可能性があります。</p>
 
     <details><summary>本当に入れますか？</summary><div class="a">「直近の入院・手術で他の保険に入れないこと」と「健康診断の結果などで現在の状態を示せること」の2つを満たす方が対象です。所定の審査があり、すべての方をお引き受けできるわけではありませんが、<b>病名や入院の事実だけを理由にお断りすることはしません</b>。</div></details>
 
@@ -438,9 +488,9 @@
       <h2>「断って終わり」にしない、という選択肢</h2>
       <p style="font-size:15px;color:var(--sub);margin-top:8px;">告知で謝絶になったお客さまに、いま提案できる商品はほとんどありません。本構想は、その空白を埋めるための“つなぎ”です。</p>
       <div class="aggrid">
-        <div class="ag"><h4>想定するお客さま</h4><p>緩和型の告知「過去1〜2年以内の入院・手術」に該当して謝絶となった方。大腸ポリープ切除後・教育入院後・PCI後・がん術後6ヶ月〜など。</p></div>
-        <div class="ag"><h4>既存商品と競合しません</h4><p>1〜2年後、緩和型・通常型に入れる状態になったお客さまへの本命提案は、これまでどおり皆さまの役割です。本共済はそこまでの期間を保障し、毎年の健診提出が自然な再面談の機会になります。</p></div>
-        <div class="ag"><h4>掛金水準の前提</h4><p><b>無選択型ほど高くなく、緩和型よりは少し高い水準</b>を前提に策定中です。「いまはこれしか入れないが、割高すぎない」という説明が成り立つ価格帯を目指します。</p></div>
+        <div class="ag"><div class="icwrap blue"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8.2" r="3.3"/><path d="M5.2 19.6c0-3.5 3-5.9 6.8-5.9s6.8 2.4 6.8 5.9"/></svg></div><h4>想定するお客さま</h4><p>緩和型の告知「過去1〜2年以内の入院・手術」に該当して謝絶となった方。大腸ポリープ切除後・教育入院後・PCI後・がん術後6ヶ月〜など。</p></div>
+        <div class="ag"><div class="icwrap blue"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5.6" width="16" height="14" rx="2"/><path d="M4 10h16M8.4 3.6v4M15.6 3.6v4"/></svg></div><h4>既存商品と競合しません</h4><p>1〜2年後、緩和型・通常型に入れる状態になったお客さまへの本命提案は、これまでどおり皆さまの役割です。本共済はそこまでの期間を保障し、毎年の健診提出が自然な再面談の機会になります。</p></div>
+        <div class="ag"><div class="icwrap blue"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12.6V5.6A1.6 1.6 0 0 1 5.6 4h7l7.4 7.4-8 8z"/><circle cx="8.4" cy="8.4" r="1.3"/></svg></div><h4>掛金水準の前提</h4><p><b>無選択型ほど高くなく、緩和型よりは少し高い水準</b>を前提に策定中です。「いまはこれしか入れないが、割高すぎない」という説明が成り立つ価格帯を目指します。</p></div>
       </div>
       <div class="agcta">
         <a class="btn" href="https://forms.gle/oAy48GTCmM5uCgfT7" target="_blank" rel="noopener">ヒアリング・販売協力のご登録</a>
@@ -455,7 +505,7 @@
   <div class="wrap" style="text-align:center;">
     <h2 style="margin-bottom:8px;">資料請求・ご相談</h2>
     <p style="color:var(--sub);font-size:14.5px;margin-bottom:22px;">構想へのご意見・ヒアリングへのご協力も、こちらからお寄せください。</p>
-    <a class="btn" href="https://forms.gle/oAy48GTCmM5uCgfT7" target="_blank" rel="noopener">フォームで連絡する</a>
+    <a class="btn big" href="https://forms.gle/oAy48GTCmM5uCgfT7" target="_blank" rel="noopener">フォームを開く（1分・入力は任意項目中心）</a>
   </div>
 </section>
 
