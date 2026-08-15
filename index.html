@@ -204,6 +204,50 @@
   table.price td{padding:8px;border:1px solid var(--line);text-align:right;}
   table.price td:first-child,table.price td:nth-child(2){text-align:left;}
   @media(max-width:840px){.grow{grid-template-columns:1fr;}.upex{grid-template-columns:1fr;}}
+  /* status badges on target cards */
+  .tcard .stat{display:inline-block;font-size:11px;font-weight:800;border-radius:999px;padding:4px 11px;margin-bottom:8px;align-self:flex-start;}
+  .stat.on{background:var(--tealL);color:var(--tealD);}
+  .stat.soon{background:var(--amberL);color:var(--amber);}
+  .tcard.dim{background:#FBFCFE;}
+  .tcard.dim h3{color:var(--sub);}
+  /* expansion chips */
+  .expand{margin-top:20px;background:#fff;border:1px dashed var(--line);border-radius:14px;padding:20px 24px;}
+  .expand .h{font-size:14px;font-weight:800;color:var(--navy);margin-bottom:10px;}
+  .chips{display:flex;flex-wrap:wrap;gap:10px;}
+  .chip{font-size:13px;color:var(--sub);background:var(--bg);border:1px solid var(--line);border-radius:999px;padding:7px 15px;}
+  .chip b{color:var(--amber);font-weight:700;}
+  /* premium visible table */
+  table.rate{width:100%;border-collapse:collapse;font-size:14.5px;background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;margin:8px 0 6px;}
+  table.rate th{background:var(--navy);color:#fff;padding:11px 12px;text-align:center;font-size:13px;font-weight:700;}
+  table.rate th:first-child,table.rate th:nth-child(2){text-align:left;}
+  table.rate td{padding:11px 12px;border-top:1px solid var(--line);text-align:right;}
+  table.rate td:first-child,table.rate td:nth-child(2){text-align:left;}
+  table.rate td.std{color:var(--sub);}
+  table.rate td.rec{font-weight:800;color:var(--tealD);}
+  /* rec discount explainer */
+  .rec2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:12px 0 6px;}
+  .recc{background:var(--tealL);border:1px solid #BCE3E8;border-radius:14px;padding:18px 20px;}
+  .recc h4{font-size:15px;color:var(--navy);margin-bottom:6px;}
+  .recc .arrow{font-size:16px;color:var(--tealD);font-weight:800;}
+  .recc .arrow s{color:var(--mute);text-decoration:line-through;font-weight:600;margin-right:8px;}
+  .recc p{font-size:12.5px;color:var(--sub);margin-top:6px;}
+  /* journey */
+  .journey{background:#fff;border:1px solid var(--line);border-radius:16px;padding:24px;margin:14px 0;}
+  .journey .head{font-size:15px;font-weight:800;color:var(--navy);margin-bottom:4px;}
+  .journey .start{font-size:14px;color:var(--sub);margin-bottom:14px;}
+  .jrow{display:flex;gap:14px;align-items:flex-start;padding:14px;border-radius:12px;margin-bottom:10px;}
+  .jrow:last-child{margin-bottom:0;}
+  .jrow.good{background:var(--greenL);border:1px solid #BFE0CD;}
+  .jrow.bad{background:var(--redL);border:1px solid #EAC8C2;}
+  .jrow .ji{flex:0 0 auto;width:30px;height:30px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:15px;color:#fff;}
+  .jrow.good .ji{background:var(--green);} .jrow.bad .ji{background:var(--red);}
+  .jrow .jt{font-size:14px;color:var(--ink);}
+  .jrow .jt b{color:var(--ink);} .jrow.good .jt b{color:var(--green);} .jrow.bad .jt b{color:var(--red);}
+  .concept{margin-top:16px;background:var(--navy);color:#fff;border-radius:16px;padding:24px 28px;}
+  .concept h3{color:#7FD7E4;font-size:18px;margin-bottom:8px;}
+  .concept p{font-size:14.5px;color:#DDE6F5;}
+  .concept b{color:#fff;}
+  @media(max-width:840px){.rec2{grid-template-columns:1fr;}table.rate{font-size:13px;}table.rate th,table.rate td{padding:9px 8px;}}
   /* faq */
   details{border:1px solid var(--line);border-radius:12px;margin-bottom:12px;background:#fff;overflow:hidden;}
   summary{cursor:pointer;padding:18px 22px;font-weight:700;font-size:15px;color:var(--navy);list-style:none;position:relative;padding-right:46px;}
@@ -261,7 +305,7 @@
     <div>
       <span class="eyebrow">入院・手術のあとで、保険に断られた方へ</span>
       <h1>病気のあとも、<br>回復に合わせて保障が育つ。</h1>
-      <p class="sub">大腸ポリープの内視鏡切除後、または2型糖尿病の教育・血糖調整入院後の45〜64歳の方向け。原因となった病気以外は、初日から保障します。</p>
+      <p class="sub">入院・手術のあとで保険に断られた方へ。まずは大腸ポリープ・2型糖尿病の方から価格を決めてご提供し、順次、対象を広げます。原因となった病気以外は、初日から保障します。</p>
       <ul class="facts">
         <li>月額3,900円から</li>
         <li>6か月で保障が育つ</li>
@@ -304,19 +348,28 @@
 <section id="target">
   <div class="wrap">
     <span class="eyebrow">対象となる方</span>
-    <h2>いまの対象は、この2つの経験をされた方です</h2>
-    <p class="lead">45〜64歳で、次のどちらかにあてはまる方。病名ではなく、健康診断の結果や医療機関の記録など<b>客観的な情報</b>で現在の状態を見ます。</p>
+    <h2>入院・手術のあとで、保険に断られた方へ</h2>
+    <p class="lead">最終的には、入院・手術のあとで保険に入れない幅広い方を対象にします。<b>まずは次の2つの経験をされた45〜64歳の方から、価格を決めてご提供します</b>（順次、対象を広げます）。病名ではなく、健康診断の結果や医療機関の記録など<b>客観的な情報</b>で現在の状態を見ます。</p>
     <div class="who2">
       <div class="cond">
-        <div class="icwrap teal"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.6 4.6l14.8 14.8"/><circle cx="12" cy="12" r="8.6"/></svg></div><div class="n">対象 1</div>
+        <div class="icwrap teal"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.6 4.6l14.8 14.8"/><circle cx="12" cy="12" r="8.6"/></svg></div><div class="n">いま申込可（価格あり）・対象 1</div>
         <h3>大腸ポリープを内視鏡で切除したあとの方</h3>
         <p>処置から30日ほど経っていれば、お申込みいただけます。医療保険の告知「過去1〜2年以内の手術」に該当して断られた方が対象です。</p>
       </div>
       <div class="cond">
-        <div class="icwrap teal"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19v-6M10 19V6M15 19v-9M20 19v-4"/></svg></div><div class="n">対象 2</div>
+        <div class="icwrap teal"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19v-6M10 19V6M15 19v-9M20 19v-4"/></svg></div><div class="n">いま申込可（価格あり）・対象 2</div>
         <h3>2型糖尿病の教育入院・血糖調整入院をされた方</h3>
         <p>退院から90日ほど経ち、血糖の状態が落ち着いていれば、お申込みいただけます。数値が改善していても保険に断られた——そんな方のためのしくみです。</p>
       </div>
+    </div>
+    <div class="expand">
+      <div class="h">順次、対象を広げていきます（準備中）</div>
+      <div class="chips">
+        <span class="chip">心臓カテーテル治療（PCI）のあと <b>準備中</b></span>
+        <span class="chip">脳卒中のあと（軽症・自立） <b>準備中</b></span>
+        <span class="chip">がんの治療のあと（完了6か月〜） <b>準備中</b></span>
+      </div>
+      <p class="note" style="margin-top:12px;">上記は、しくみの考え方としては同じ「回復に合わせて保障が育つ」対象ですが、<b>価格は今後の設定</b>です。ご要望はページ下部のフォームからお寄せください。</p>
     </div>
     <div class="ng">
       <h4>対象にならない方</h4>
@@ -327,7 +380,6 @@
         <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.6"/><path d="M9.3 9.3l5.4 5.4M14.7 9.3l-5.4 5.4"/></svg>予定された入院・手術がある方</li>
       </ul>
     </div>
-    <p class="note" style="margin-top:14px;">心臓カテーテル治療のあと・がんの手術のあとなど、ほかの経験をされた方への拡大は<b>将来の検討課題</b>です。ご要望はページ下部のフォームからお寄せください。</p>
   </div>
 </section>
 
@@ -392,11 +444,12 @@
 <section class="targets">
   <div class="wrap">
     <span class="eyebrow">対象事例</span>
-    <h2>2つのケースで、具体的に</h2>
-    <p class="lead">「対象外になるもの」と「初日から保障されるもの」を、具体的にご覧ください。</p>
+    <h2>4つのケースで、具体的に</h2>
+    <p class="lead">「対象外になるもの」と「初日から保障されるもの」を、具体的にご覧ください。上の2つは<b>いま価格が決まっている対象</b>、下の2つは<b>順次対応予定</b>です。</p>
     <div class="tgrid">
 
       <div class="tcard">
+        <span class="stat on">いま申込可・価格あり</span>
         <h3>大腸ポリープ・内視鏡治療のあと</h3>
         <span class="scale">入院を伴うものだけで年間34万件 — 手術件数で全国最多クラス</span>
         <div class="tt w">保障が育つまで対象が絞られるもの（0%→50%→100%）</div>
@@ -412,6 +465,7 @@
       </div>
 
       <div class="tcard">
+        <span class="stat on">いま申込可・価格あり</span>
         <h3>糖尿病の教育入院・血糖調整入院のあと</h3>
         <span class="scale">糖尿病で治療中の方は全国552万人</span>
         <div class="tt w">保障が育つまで対象が絞られるもの（0%→50%→100%）</div>
@@ -423,6 +477,36 @@
           <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 12.6l4.8 4.8L19.5 7.2"/></svg>がん、心臓や脳の病気での入院</li>
         </ul>
         <div class="kaijo"><b>保障が育つ条件：</b>血糖状態（HbA1c）が基準の範囲内で悪化していないこと、お薬と通院を続けていること、健診結果のご提出。</div>
+      </div>
+
+      <div class="tcard dim">
+        <span class="stat soon">順次対応予定（価格は今後）</span>
+        <h3>心臓カテーテル治療（PCI）のあと</h3>
+        <span class="scale">カテーテル治療は年間24.5万件</span>
+        <div class="tt w">保障が育つまで対象が絞られるもの（0%→50%→100%）</div>
+        <ul class="w"><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="4.6" y="4.6" width="14.8" height="14.8" rx="3.2"/></svg>狭心症・心筋梗塞など冠動脈の病気、その再治療（再カテーテル・バイパス手術）、心不全での入院</li></ul>
+        <div class="tt o">初日から保障されるもの（例）</div>
+        <ul class="o">
+          <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 12.6l4.8 4.8L19.5 7.2"/></svg>肺炎での入院、骨折・ケガの手術</li>
+          <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 12.6l4.8 4.8L19.5 7.2"/></svg>胃腸・肝臓など消化器の病気</li>
+          <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 12.6l4.8 4.8L19.5 7.2"/></svg>がん、脳の病気、糖尿病での入院</li>
+        </ul>
+        <div class="kaijo"><b>保障が育つ条件（予定）：</b>LDLコレステロールと血圧が基準内、処方されたお薬（抗血小板薬など）の継続、禁煙、再発がないこと。</div>
+      </div>
+
+      <div class="tcard dim">
+        <span class="stat soon">順次対応予定（価格は今後）</span>
+        <h3>がんの手術のあと（治療完了から6か月〜）</h3>
+        <span class="scale">がんと診断される方は年間99万人 — うち現役世代が約20万人</span>
+        <div class="tt w">保障が育つまで対象が絞られるもの（0%→50%→100%）</div>
+        <ul class="w"><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="4.6" y="4.6" width="14.8" height="14.8" rx="3.2"/></svg>すべてのがん（再発・転移・新たながん）による入院・手術 — 治療完了6か月〜、段階的に解除</li></ul>
+        <div class="tt o">初日から保障されるもの（例）</div>
+        <ul class="o">
+          <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 12.6l4.8 4.8L19.5 7.2"/></svg>肺炎での入院、骨折・ケガの手術</li>
+          <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 12.6l4.8 4.8L19.5 7.2"/></svg>心臓や脳の病気、糖尿病での入院</li>
+          <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 12.6l4.8 4.8L19.5 7.2"/></svg>胆石・ヘルニアなど、がん以外のすべての病気</li>
+        </ul>
+        <div class="kaijo"><b>保障が育つ条件（予定）：</b>数値ではなく、医師の指示どおりに定期検査（画像・内視鏡など）を受け続けていること。大腸がんでは、運動が再発リスクを下げることが臨床試験で示されています。</div>
       </div>
 
     </div>
@@ -439,23 +523,37 @@
     <p class="lead">年齢（45〜54歳／55〜64歳）・原因の病気・現在の健康状態により、<b>月額3,900円〜7,800円</b>です。複数の医療記録で安定を確認できた方には、加入時の保険料が約1割安くなる「記録割」があります。</p>
     <div class="pbig">3,900円<small>〜7,800円／月（検証中の水準です）</small></div>
 
-    <h3 style="font-size:17px;color:var(--navy);margin:30px 0 6px;">保険料が変わるのは、年1回の更新のときだけ</h3>
-    <p style="font-size:14.5px;color:var(--sub);margin-bottom:8px;">6か月の時点では保険料は変わりません。1年ごとの更新で、健康状態により<b>下がる・上がる・更新できない</b>場合があります。値上げになる場合の例（55〜64歳）：</p>
-    <div class="upex">
-      <div class="up">
-        <h4>大腸ポリープのあと — 更新で健康状態が悪化した場合</h4>
-        <div class="row"><span>標準で加入した方</span><b>4,800円 → 5,200円<span class="d">（+400円・約8%）</span></b></div>
-        <div class="row"><span>記録割で加入した方</span><b>4,300円 → 5,200円<span class="d">（+900円・約21%）</span></b></div>
-      </div>
-      <div class="up">
-        <h4>2型糖尿病のあと — 更新で健康状態が悪化した場合</h4>
-        <div class="row"><span>標準で加入した方</span><b>6,500円 → 7,100円<span class="d">（+600円・約9%）</span></b></div>
-        <div class="row"><span>記録割で加入した方</span><b>5,900円 → 7,100円<span class="d">（+1,200円・約20%）</span></b></div>
-      </div>
-    </div>
-    <p class="note" style="margin-bottom:26px;">記録割は<b>加入時の割引</b>です。同じ健康状態へ悪化した場合の更新後の保険料は同じ金額になるため、記録割で加入した方のほうが値上げの幅は大きく見えます。1回の検査値だけで値上げすることはなく、原則として8週以上離れた2回の医療記録、または入院などの重大な事象で確認します。</p>
+    <h3 style="font-size:17px;color:var(--navy);margin:30px 0 8px;">加入時の月額（年齢・原因の病気別）</h3>
+    <table class="rate">
+      <tr><th>年齢</th><th>原因の病気</th><th>標準</th><th>記録割</th></tr>
+      <tr><td>45〜54歳</td><td>大腸ポリープ</td><td class="std">4,300円</td><td class="rec">3,900円</td></tr>
+      <tr><td>45〜54歳</td><td>2型糖尿病</td><td class="std">5,800円</td><td class="rec">5,200円</td></tr>
+      <tr><td>55〜64歳</td><td>大腸ポリープ</td><td class="std">4,800円</td><td class="rec">4,300円</td></tr>
+      <tr><td>55〜64歳</td><td>2型糖尿病</td><td class="std">6,500円</td><td class="rec">5,900円</td></tr>
+    </table>
+    <p class="note" style="margin-bottom:6px;">これは「はじめの保障」で加入するときの月額です。<b>性別による差はありません</b>（年齢・原因の病気・健康状態で決まります）。健康状態により「高リスク」の区分になる場合は、これより高くなります（<a href="#allrate" style="color:var(--tealD);font-weight:700;">全区分の料金表</a>）。金額は検証中の水準です。</p>
 
-    <details style="margin-bottom:26px;"><summary>料金表のすべてを見る（16区分）</summary><div class="a">
+    <h3 style="font-size:17px;color:var(--navy);margin:30px 0 8px;">「記録割」とは — 記録で安定を示せた方への割引</h3>
+    <p style="font-size:14.5px;color:var(--sub);margin-bottom:6px;">健康診断や医療機関の記録が複数そろい、<b>8週以上あけた2つの時点などで「状態が安定している」と確認できた方</b>は、加入時の月額が約1割安くなります。保障の中身は「標準」とまったく同じです。</p>
+    <div class="rec2">
+      <div class="recc"><h4>大腸ポリープ・55〜64歳の例</h4><div class="arrow"><s>標準 4,800円</s> → 記録割 <b>4,300円</b>／月</div><p>差 −500円。記録で安定を確認できた場合に適用されます。</p></div>
+      <div class="recc"><h4>2型糖尿病・55〜64歳の例</h4><div class="arrow"><s>標準 6,500円</s> → 記録割 <b>5,900円</b>／月</div><p>差 −600円。血糖状態などの記録がそろい、安定が確認できた場合に適用されます。</p></div>
+    </div>
+
+    <h3 style="font-size:17px;color:var(--navy);margin:30px 0 8px;">保険料が変わるのは、年1回の更新のときだけ</h3>
+    <p style="font-size:14.5px;color:var(--sub);margin-bottom:10px;">6か月の時点では保険料は変わりません。1年ごとの更新で、健康状態により<b>下がる・上がる・更新できない</b>場合があります。実際の流れを、例で見てみましょう。</p>
+    <div class="journey">
+      <div class="head">たとえば：55歳・2型糖尿病・記録割で加入</div>
+      <div class="start">加入時の月額 <b style="color:var(--tealD);">5,900円</b>（記録で安定を確認できたので、標準6,500円から約1割引）</div>
+      <div class="jrow good"><div class="ji">◎</div><div class="jt"><b>良い状態を保てたら（多くの方はこちら）</b><br>1年後も月<b>5,900円のまま</b>。保障は「まるごと保障（100%）」へ育ち、給付が少なかった年は割戻しも受けられます。</div></div>
+      <div class="jrow bad"><div class="ji">△</div><div class="jt"><b>もし数値が基準を超えて悪化したら</b><br>1年後の更新で「高リスク」の区分へ移り、月<b>7,100円（+1,200円・約2割）</b>。<b>記録割はなくなります</b>（＝割引が消えるぶん、上がり幅が大きく見えます）。それでも保険期間の途中で保障を減らすことはありません。</div></div>
+    </div>
+    <div class="concept">
+      <h3>このしくみは、いま健康に自信がある方のためのものです</h3>
+      <p><b>良い状態を保つほど、保険料は上がらず、割戻しも受けられます。</b>「記録割」は、これからも管理を続けられるという方への割引です。反対に数値が悪化すれば、割引がなくなり保険料は上がります——だからこそ、<b>最初の健康状態が良く、それを保つ自信のある方に、いちばん向いたしくみ</b>です。1回の検査値だけで値上げすることはなく、原則として8週以上あけた2回の医療記録、または入院などの重大な事象で確認します。</p>
+    </div>
+
+    <details id="allrate" style="margin:26px 0;"><summary>全区分の料金表を見る（標準・記録割・高リスク／保障の段階別）</summary><div class="a">
       <p style="margin:8px 0 2px;font-weight:700;color:var(--navy);">通常保険料（現在の健康状態が基準内の方）</p>
       <table class="price">
         <tr><th>年齢</th><th>原因の病気</th><th>はじめの保障（標準）</th><th>はじめの保障（記録割）</th><th>半分保障※</th><th>まるごと保障※</th></tr>
@@ -472,7 +570,7 @@
         <tr><td>55〜64歳</td><td>大腸ポリープ</td><td>5,800円</td><td>5,200円</td><td>5,200円</td><td>5,300円</td></tr>
         <tr><td>55〜64歳</td><td>2型糖尿病</td><td>7,800円</td><td>7,100円</td><td>7,100円</td><td>7,600円</td></tr>
       </table>
-      <p class="note" style="margin-top:10px;">※「半分保障」「まるごと保障」の列は、1年ごとの更新時に適用される基準の保険料です。6か月で保障が半分保障に育っても、保険料は初回の更新まで加入時の金額のまま変わりません。健康状態が引受の上限を超える場合は、保険料を上げてもお引き受けせず、更新できません。</p>
+      <p class="note" style="margin-top:10px;">※「半分保障」「まるごと保障」の列は、1年ごとの更新時に適用される基準の保険料です。6か月で保障が半分保障に育っても、保険料は初回の更新まで加入時の金額のまま変わりません。健康状態が引受の上限を超える場合は、保険料を上げてもお引き受けせず、更新できません。性別による差はありません。</p>
     </div></details>
 
     <h3 style="font-size:16px;color:var(--navy);margin:8px 0 10px;">水準の位置づけ</h3>
