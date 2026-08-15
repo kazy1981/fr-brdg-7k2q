@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow, noarchive">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2316233F'/%3E%3Cpath d='M9 40h9l5-11 7 20 6-27 5 18h14' fill='none' stroke='%230FA3B1' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
-<title>入院・手術のあとで、保険に断られたあなたへ ｜ frich（仮称・コンセプト検証中）</title>
+<title>病気のあとも、回復に合わせて保障が育つ ｜ frich（仮称・コンセプト検証中）</title>
 <style>
   :root{
     --navy:#16233F; --navy2:#223559; --ink:#1A2233; --sub:#55607A; --mute:#8A94A8;
@@ -83,7 +83,7 @@
 
   /* voices */
   .voices{background:var(--bg);}
-  .vgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+  .vgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;}
   .voice{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px;}
   .voice p{font-size:14.5px;color:var(--ink);}
   .voice .who{font-size:12px;color:var(--mute);margin-top:12px;}
@@ -172,6 +172,38 @@
   .wcard p{font-size:13.5px;color:#D5DEF0;}
   .wnote{margin-top:22px;font-size:12.5px;color:#8FA2C4;}
 
+  /* benefits table */
+  table.bt{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;}
+  table.bt th{background:var(--navy);color:#fff;font-size:13px;padding:10px 14px;text-align:left;font-weight:700;}
+  table.bt td{padding:12px 14px;font-size:14px;border-top:1px solid var(--line);}
+  table.bt td.v{font-weight:800;color:var(--navy);white-space:nowrap;}
+  .capbox{margin-top:14px;background:var(--redL);border:1px solid #EAC8C2;border-radius:12px;padding:16px 20px;font-size:14.5px;color:var(--ink);}
+  .capbox b{color:var(--red);}
+  /* grow */
+  .grow{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:6px 0 18px;}
+  .gcard{border-radius:14px;padding:18px;color:#fff;text-align:center;}
+  .gcard .gt{font-size:12.5px;opacity:.85;}
+  .gcard .gp{font-size:30px;font-weight:800;line-height:1.2;margin:2px 0;}
+  .gcard .gn{font-size:14px;font-weight:700;}
+  .gcard.g1{background:var(--navy2);} .gcard.g2{background:var(--blue);} .gcard.g3{background:var(--teal);}
+  .imp{background:var(--navy);color:#fff;border-radius:14px;padding:20px 26px;font-size:16px;margin:14px 0;}
+  .imp b{color:#7FD7E4;}
+  /* price */
+  .pbig{font-size:clamp(30px,4vw,40px);font-weight:800;color:var(--tealD);line-height:1.2;}
+  .pbig small{font-size:15px;color:var(--sub);font-weight:600;}
+  .upex{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:18px 0 8px;}
+  .up{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px;}
+  .up h4{font-size:15px;color:var(--navy);margin-bottom:8px;}
+  .up p{font-size:13.5px;color:var(--sub);}
+  .up .row{display:flex;justify-content:space-between;font-size:14px;padding:7px 0;border-bottom:1px dashed var(--line);}
+  .up .row:last-of-type{border-bottom:0;}
+  .up .row b{color:var(--ink);}
+  .up .d{color:var(--red);font-weight:700;}
+  table.price{width:100%;border-collapse:collapse;font-size:13px;margin-top:10px;}
+  table.price th{background:var(--bg);color:var(--navy);padding:8px;border:1px solid var(--line);font-size:12px;}
+  table.price td{padding:8px;border:1px solid var(--line);text-align:right;}
+  table.price td:first-child,table.price td:nth-child(2){text-align:left;}
+  @media(max-width:840px){.grow{grid-template-columns:1fr;}.upex{grid-template-columns:1fr;}}
   /* faq */
   details{border:1px solid var(--line);border-radius:12px;margin-bottom:12px;background:#fff;overflow:hidden;}
   summary{cursor:pointer;padding:18px 22px;font-weight:700;font-size:15px;color:var(--navy);list-style:none;position:relative;padding-right:46px;}
@@ -227,13 +259,13 @@
 <div class="hero">
   <div class="wrap cols">
     <div>
-      <span class="eyebrow">コンセプト</span>
-      <h1>入院・手術のあとで、<br>保険に断られたあなたへ。</h1>
-      <p class="sub">治療は終わった。数値も戻っている。それでも1〜2年は、どの保険にも入れない——その“空白の期間”を支える、新しいたすけあいです。</p>
+      <span class="eyebrow">入院・手術のあとで、保険に断られた方へ</span>
+      <h1>病気のあとも、<br>回復に合わせて保障が育つ。</h1>
+      <p class="sub">大腸ポリープの内視鏡切除後、または2型糖尿病の教育・血糖調整入院後の45〜64歳の方向け。原因となった病気以外は、初日から保障します。</p>
       <ul class="facts">
-        <li>直近1〜2年の入院・手術がある方が対象</li>
-        <li>原因の病気以外は初日から保障</li>
-        <li>毎年の数値で、保障が育つ</li>
+        <li>月額3,900円から</li>
+        <li>6か月で保障が育つ</li>
+        <li>保険料の見直しは年1回</li>
       </ul>
       <div class="ctas">
         <a class="btn" href="#target">対象になるか確かめる</a>
@@ -243,8 +275,8 @@
     <div class="heroCard">
       <div class="t">このしくみの約束</div>
       <div class="hrow">
-        <span class="pill wait">しばらく対象外</span>
-        <p><b>原因になった病気のグループだけ</b>、一定期間お待ちいただきます（やがて解除されます）</p>
+        <span class="pill wait">育つ保障</span>
+        <p><b>原因になった病気のグループだけ</b>、はじめは対象外。回復にあわせて<b>6か月で半分 → 1年でまるごと</b>へ育ちます</p>
       </div>
       <div class="hrow">
         <span class="pill now">初日から保障</span>
@@ -263,7 +295,6 @@
     <div class="vgrid">
       <div class="voice"><p>大腸のポリープを取っただけなのに、「2年間は入れません」と言われた。</p><div class="who"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8.2" r="3.3"/><path d="M5.2 19.6c0-3.5 3-5.9 6.8-5.9s6.8 2.4 6.8 5.9"/></svg>50代・男性（内視鏡でポリープ切除）</div></div>
       <div class="voice"><p>教育入院で生活を立て直して、数値はむしろ良くなった。それでも断られた。</p><div class="who"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8.2" r="3.3"/><path d="M5.2 19.6c0-3.5 3-5.9 6.8-5.9s6.8 2.4 6.8 5.9"/></svg>50代・男性（糖尿病の教育入院）</div></div>
-      <div class="voice"><p>がんの手術から1年。再発もなく経過は良好なのに、「あと4年お待ちください」。</p><div class="who"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8.2" r="3.3"/><path d="M5.2 19.6c0-3.5 3-5.9 6.8-5.9s6.8 2.4 6.8 5.9"/></svg>40代・女性（乳がん・治療完了）</div></div>
     </div>
     <div class="punch">断られた理由は、いまのあなたの健康状態ではなく、<b>「直近に入院・手術をした」という事実だけ</b>かもしれません。私たちは、その先を見ます。</div>
   </div>
@@ -273,18 +304,18 @@
 <section id="target">
   <div class="wrap">
     <span class="eyebrow">対象となる方</span>
-    <h2>誰のための、たすけあいか</h2>
-    <p class="lead">次の2つにあてはまる方のための共済です。</p>
+    <h2>いまの対象は、この2つの経験をされた方です</h2>
+    <p class="lead">45〜64歳で、次のどちらかにあてはまる方。病名ではなく、健康診断の結果や医療機関の記録など<b>客観的な情報</b>で現在の状態を見ます。</p>
     <div class="who2">
       <div class="cond">
-        <div class="icwrap teal"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.6 4.6l14.8 14.8"/><circle cx="12" cy="12" r="8.6"/></svg></div><div class="n">条件 1</div>
-        <h3>医療保険に入りたくても、入れない方</h3>
-        <p>直近1〜2年以内の入院・手術が理由で、通常の医療保険にも、持病があっても入りやすい「引受基準緩和型」にも入れなかった方。</p>
+        <div class="icwrap teal"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.6 4.6l14.8 14.8"/><circle cx="12" cy="12" r="8.6"/></svg></div><div class="n">対象 1</div>
+        <h3>大腸ポリープを内視鏡で切除したあとの方</h3>
+        <p>処置から30日ほど経っていれば、お申込みいただけます。医療保険の告知「過去1〜2年以内の手術」に該当して断られた方が対象です。</p>
       </div>
       <div class="cond">
-        <div class="icwrap teal"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19v-6M10 19V6M15 19v-9M20 19v-4"/></svg></div><div class="n">条件 2</div>
-        <h3>「いまは問題ない」を、数字で示せる方</h3>
-        <p>治療を終え、ご自身では健康面に問題ないと感じている——そして健康診断の結果やお薬手帳など、それを裏づける<b>客観的な情報</b>をお持ちの方。私たちは病名ではなく、その数字と管理の事実を見ます。</p>
+        <div class="icwrap teal"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19v-6M10 19V6M15 19v-9M20 19v-4"/></svg></div><div class="n">対象 2</div>
+        <h3>2型糖尿病の教育入院・血糖調整入院をされた方</h3>
+        <p>退院から90日ほど経ち、血糖の状態が落ち着いていれば、お申込みいただけます。数値が改善していても保険に断られた——そんな方のためのしくみです。</p>
       </div>
     </div>
     <div class="ng">
@@ -296,6 +327,24 @@
         <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.6"/><path d="M9.3 9.3l5.4 5.4M14.7 9.3l-5.4 5.4"/></svg>予定された入院・手術がある方</li>
       </ul>
     </div>
+    <p class="note" style="margin-top:14px;">心臓カテーテル治療のあと・がんの手術のあとなど、ほかの経験をされた方への拡大は<b>将来の検討課題</b>です。ご要望はページ下部のフォームからお寄せください。</p>
+  </div>
+</section>
+
+<!-- S3.2 BENEFITS -->
+<section style="background:var(--bg);">
+  <div class="wrap">
+    <span class="eyebrow">保障の内容</span>
+    <h2>シンプルな、3つの給付</h2>
+    <p class="lead">複雑な特約はありません。入院・手術・退院後のサポートに絞った、わかりやすい保障です。</p>
+    <table class="bt">
+      <tr><th>給付</th><th>金額</th><th>限度</th></tr>
+      <tr><td>入院給付金</td><td class="v">1日 5,000円</td><td>1入院30日まで・1年間で60日まで</td></tr>
+      <tr><td>入院中手術給付金</td><td class="v">1回 5万円</td><td>1年間で2回まで</td></tr>
+      <tr><td>退院後給付金</td><td class="v">1回 1万円</td><td>対象入院の退院時・1年間で2回まで</td></tr>
+    </table>
+    <div class="capbox"><b>1年間にお支払いする給付金は、合計42万円までです。</b>これは上の3つの給付を1年間に最大まで受け取った場合の合計額です。合計が42万円に達した日の翌日に契約は消滅し、その後は更新できません。</div>
+    <p class="note" style="margin-top:12px;">先進医療・外来手術・診断一時金などの大口の給付は、現時点の商品には含まれません。</p>
   </div>
 </section>
 
@@ -303,8 +352,8 @@
 <section class="uw">
   <div class="wrap">
     <span class="eyebrow">審査について</span>
-    <h2>審査の考え方 — データを出すほど、有利になります</h2>
-    <p class="lead">一般に、保険は情報を多く出すほど断られやすくなります。私たちは逆の設計です。</p>
+    <h2>審査の考え方 — 記録がそろうほど、正しく評価できます</h2>
+    <p class="lead">一般に、保険は情報を多く出すほど断られやすくなります。私たちは逆の設計で、医療機関や健診の記録をもとに「いまの状態」を評価します。</p>
     <div class="ugrid">
       <div class="ucard">
         <div class="icwrap blue"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M9.5 4h5v2.5h-5z"/><path d="M8 5.2H5.5v14.3h13V5.2H16"/><path d="M8.5 11h7M8.5 15h4.5"/></svg></div><h3>直近の健康診断の結果は必須です</h3>
@@ -312,7 +361,7 @@
       </div>
       <div class="ucard">
         <div class="icwrap blue"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19v-6M10 19V6M15 19v-9M20 19v-4"/></svg></div><h3>多いほど、正しく評価できます</h3>
-        <p>検査値の推移、通院・服薬の記録、活動量。多面的に見られるほど「いまは落ち着いている」ことを正確に評価できます。情報が少ない場合は、安全側の判定にならざるを得ません。</p>
+        <p>検査値の推移、通院・服薬の記録。多面的に見られるほど「いまは落ち着いている」ことを正確に評価できます。<b>複数の医療記録で安定を確認できた方には、加入時の保険料が約1割安くなる「記録割」</b>があります（基準を満たした場合に適用されます）。</p>
       </div>
       <div class="ucard">
         <div class="icwrap blue"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="7" width="10" height="10" rx="2.2"/><path d="M10 3.2v3.3M14 3.2v3.3M10 17.5v3.3M14 17.5v3.3M3.2 10h3.3M3.2 14h3.3M17.5 10h3.3M17.5 14h3.3"/></svg></div><h3>AIが多面的に査定します</h3>
@@ -326,23 +375,16 @@
 <section style="background:var(--bg);">
   <div class="wrap">
     <span class="eyebrow">しくみ</span>
-    <h2>基本的なしくみ — 3つのステップ</h2>
-    <p class="lead">「審査がゆるい」のではありません。<b>ちゃんと見るから、入れる</b>。それがこのしくみです。</p>
-    <div class="steps">
-      <div class="step"><span class="sn">STEP 1</span>
-        <div class="icwrap teal"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 4H19v16h-5.5"/><path d="M4 12h9"/><path d="M9.5 8.2L13.3 12l-3.8 3.8"/></svg></div><h3>いま、入る</h3>
-        <p>入院・手術からの経過が短くても、健康診断の結果などを確認して引き受けます。<b>原因になった病気のグループだけ</b>一定期間保障の対象外（不担保）とし、<b>それ以外の病気・ケガは初日から保障</b>します。</p>
-      </div>
-      <div class="step"><span class="sn">STEP 2</span>
-        <div class="icwrap teal"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.4-5.7"/><path d="M20.2 4.2v4.2h-4.2"/></svg></div><h3>毎年、数値で更新</h3>
-        <p>年に1回、健康診断の結果などをご提出いただきます。見る数値は原因の病気によって変わります（糖尿病ならHbA1c、心臓なら血圧やLDL、ポリープなら検査の受診）。<b>基準内なら保険料の割引が続き、不担保が「半分給付」→「満額」へと解除</b>されていきます。</p>
-      </div>
-      <div class="step"><span class="sn">STEP 3</span>
-        <div class="icwrap teal"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="6.8" rx="7" ry="2.9"/><path d="M5 6.8v4.7c0 1.6 3.1 2.9 7 2.9s7-1.3 7-2.9V6.8"/><path d="M5 11.5v4.7c0 1.6 3.1 2.9 7 2.9s7-1.3 7-2.9v-4.7"/></svg></div><h3>続けるほど、戻ってくる</h3>
-        <p>みんなで支え合う「わけわけ」のしくみ。給付が少なかった年は、余った掛金の一部が<b>割戻しとして戻ります</b>。反対に給付が多かった年は、割戻しが出ない・翌年の掛金が見直されるなど、<b>参加者どうしで一定のリスクを分かち合う</b>可能性があります。また、しくみによっては<b>取扱代理店にも「手数料の戻入」（受け取った手数料の一部をお返しいただくこと）というかたちでリスクを分担</b>いただくことを想定しています——それが「たすけあい」の意味です。管理の実績、育った保障、割戻し。続けた分だけ積み上がります。</p>
-      </div>
+    <h2>原因の病気の保障は、回復に合わせて育ちます</h2>
+    <p class="lead">原因になった病気のグループだけ、はじめは保障を抑えて早くお引き受けします。<b>それ以外の病気・ケガは、初日から全額保障</b>です。</p>
+    <div class="grow">
+      <div class="gcard g1"><div class="gt">加入時</div><div class="gp">0%</div><div class="gn">はじめの保障</div></div>
+      <div class="gcard g2"><div class="gt">6か月後（回復基準を満たしたら）</div><div class="gp">50%</div><div class="gn">半分保障</div></div>
+      <div class="gcard g3"><div class="gt">1年後の更新（基準を満たしたら）</div><div class="gp">100%</div><div class="gn">まるごと保障</div></div>
     </div>
-    <div class="promise"><span class="pico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.4l7.2 3.1v5.9c0 4.1-2.9 7.5-7.2 8.9-4.3-1.4-7.2-4.8-7.2-8.9V6.5z"/><path d="M9.4 12.3l1.9 1.9 3.6-3.9"/></svg></span><b>大切な約束：</b>数値が悪くなっても、それを理由に給付をお断りすることはありません。割引と保障の“育ち”が一時停止するだけです。ペナルティではなく、ご褒美で続くしくみにしています。</div>
+    <div class="imp"><b>6か月では、保険料は変わりません。</b>回復基準を満たした方は、保障だけが「半分保障」へ育ちます。保険料を見直すのは、1年ごとの更新のときだけです。</div>
+    <p style="font-size:14.5px;color:var(--sub);margin-bottom:6px;">1年ごとの更新では、健康状態により保険料が<b>下がる・上がる・更新できない</b>場合があります。詳しくは<a href="#price" style="color:var(--tealD);font-weight:700;">保険料について</a>をご覧ください。</p>
+    <div class="promise"><span class="pico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.4l7.2 3.1v5.9c0 4.1-2.9 7.5-7.2 8.9-4.3-1.4-7.2-4.8-7.2-8.9V6.5z"/><path d="M9.4 12.3l1.9 1.9 3.6-3.9"/></svg></span><b>大切な約束：</b>保険期間の途中で健康状態が悪化しても、<b>保障を減らしたり、保険料を上げたりしません</b>。数値の悪化を理由に給付をお断りすることもありません（事実と異なる告知があった場合を除きます）。見直しは年1回の更新時だけです。</div>
   </div>
 </section>
 
@@ -350,15 +392,15 @@
 <section class="targets">
   <div class="wrap">
     <span class="eyebrow">対象事例</span>
-    <h2>対象になる方の例</h2>
-    <p class="lead">代表的な4つのケースです。「対象外になるもの」と「初日から保障されるもの」を、具体的にご覧ください。</p>
+    <h2>2つのケースで、具体的に</h2>
+    <p class="lead">「対象外になるもの」と「初日から保障されるもの」を、具体的にご覧ください。</p>
     <div class="tgrid">
 
       <div class="tcard">
         <h3>大腸ポリープ・内視鏡治療のあと</h3>
         <span class="scale">入院を伴うものだけで年間34万件 — 手術件数で全国最多クラス</span>
-        <div class="tt w">はじめの6ヶ月、対象外になるもの</div>
-        <ul class="w"><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="4.6" y="4.6" width="14.8" height="14.8" rx="3.2"/></svg>大腸のポリープ・腺腫・大腸がん、その内視鏡治療や手術による入院</li></ul>
+        <div class="tt w">保障が育つまで対象が絞られるもの（0%→50%→100%）</div>
+        <ul class="w"><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="4.6" y="4.6" width="14.8" height="14.8" rx="3.2"/></svg>大腸のポリープ・腺腫・大腸がん、その内視鏡治療や手術による入院 — 加入時0%、6か月で半分保障、1年でまるごと保障</li></ul>
         <div class="tt o">初日から保障されるもの（例）</div>
         <ul class="o">
           <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 12.6l4.8 4.8L19.5 7.2"/></svg>肺炎・インフルエンザでの入院</li>
@@ -366,63 +408,74 @@
           <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 12.6l4.8 4.8L19.5 7.2"/></svg>心臓や脳の病気、糖尿病での入院</li>
           <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 12.6l4.8 4.8L19.5 7.2"/></svg>大腸以外のがん</li>
         </ul>
-        <div class="kaijo"><b>解除の条件：</b>医師に指示された次回の大腸内視鏡検査を、時期どおりに受けていること。それだけです。<br><b>さらに：</b>体重や歩数などの記録。</div>
+        <div class="kaijo"><b>保障が育つ条件：</b>医師に指示された次回の大腸内視鏡検査を、時期どおりに受けていること。それだけです。</div>
       </div>
 
       <div class="tcard">
         <h3>糖尿病の教育入院・血糖調整入院のあと</h3>
         <span class="scale">糖尿病で治療中の方は全国552万人</span>
-        <div class="tt w">はじめの12ヶ月、対象外になるもの</div>
-        <ul class="w"><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="4.6" y="4.6" width="14.8" height="14.8" rx="3.2"/></svg>糖尿病と、その合併症（腎症・網膜症・神経障害・足病変、低血糖・高血糖による昏睡など）での入院</li></ul>
+        <div class="tt w">保障が育つまで対象が絞られるもの（0%→50%→100%）</div>
+        <ul class="w"><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="4.6" y="4.6" width="14.8" height="14.8" rx="3.2"/></svg>糖尿病と、その合併症（腎症・網膜症・神経障害・足病変、低血糖・高血糖による昏睡など）での入院 — 加入時0%、6か月で半分保障、1年でまるごと保障</li></ul>
         <div class="tt o">初日から保障されるもの（例）</div>
         <ul class="o">
           <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 12.6l4.8 4.8L19.5 7.2"/></svg>肺炎での入院、骨折・ケガの手術</li>
           <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 12.6l4.8 4.8L19.5 7.2"/></svg>虫垂炎・胆石など消化器の病気</li>
           <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 12.6l4.8 4.8L19.5 7.2"/></svg>がん、心臓や脳の病気での入院</li>
         </ul>
-        <div class="kaijo"><b>解除の条件：</b>HbA1cが基準の範囲内で悪化していないこと、お薬と通院を続けていること、年1回の健診結果のご提出。<br><b>さらに：</b>歩数・体重・血糖の自己測定などの記録。</div>
-      </div>
-
-      <div class="tcard">
-        <h3>心臓カテーテル治療（PCI）のあと</h3>
-        <span class="scale">カテーテル治療は年間24.5万件</span>
-        <div class="tt w">はじめの12ヶ月、対象外になるもの</div>
-        <ul class="w"><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="4.6" y="4.6" width="14.8" height="14.8" rx="3.2"/></svg>狭心症・心筋梗塞など冠動脈の病気、その再治療（再カテーテル・バイパス手術）、心不全での入院</li></ul>
-        <div class="tt o">初日から保障されるもの（例）</div>
-        <ul class="o">
-          <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 12.6l4.8 4.8L19.5 7.2"/></svg>肺炎での入院、骨折・ケガの手術</li>
-          <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 12.6l4.8 4.8L19.5 7.2"/></svg>胃腸・肝臓など消化器の病気</li>
-          <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 12.6l4.8 4.8L19.5 7.2"/></svg>がん、脳の病気、糖尿病での入院</li>
-        </ul>
-        <div class="kaijo"><b>解除の条件：</b>LDLコレステロールと血圧が基準内、処方されたお薬（抗血小板薬など）の継続、禁煙、再発がないこと。<br><b>さらに：</b>家庭での血圧記録、歩数・運動などの活動量。</div>
-      </div>
-
-      <div class="tcard">
-        <h3>がんの手術のあと（治療完了から6ヶ月〜）</h3>
-        <span class="scale">がんと診断される方は年間99万人 — うち現役世代が約20万人</span>
-        <div class="tt w">はじめの24ヶ月、対象外になるもの（段階的に解除）</div>
-        <ul class="w"><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="4.6" y="4.6" width="14.8" height="14.8" rx="3.2"/></svg>すべてのがん（再発・転移・新たながん）による入院・手術</li></ul>
-        <div class="tt o">初日から保障されるもの（例）</div>
-        <ul class="o">
-          <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 12.6l4.8 4.8L19.5 7.2"/></svg>肺炎での入院、骨折・ケガの手術</li>
-          <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 12.6l4.8 4.8L19.5 7.2"/></svg>心臓や脳の病気、糖尿病での入院</li>
-          <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 12.6l4.8 4.8L19.5 7.2"/></svg>胆石・ヘルニアなど、がん以外のすべての病気</li>
-        </ul>
-        <div class="kaijo"><b>解除の条件：</b>数値ではなく、医師の指示どおりに定期検査（画像・内視鏡など）を受け続けていること。更新のたびに「半分給付」→「満額」へ育ちます。<br><b>さらに：</b>歩数など活動量の記録。大腸がんでは、運動が再発リスクを下げることが臨床試験で示されています。</div>
+        <div class="kaijo"><b>保障が育つ条件：</b>血糖状態（HbA1c）が基準の範囲内で悪化していないこと、お薬と通院を続けていること、健診結果のご提出。</div>
       </div>
 
     </div>
-    <p class="opt"><b>「さらに」の情報について：</b>ご提出は任意です。出していただかなくても不利にはなりませんが、あれば翌年の更新時にプラスに加味します。</p>
-    <p class="note tsrc">件数の出典：厚生労働省NDBオープンデータ・患者調査、全国がん登録（2023年）、JROAD（2024年版）。対象外の範囲・期間・解除条件は現在検討中の設計案であり、変更されることがあります。</p>
+    <p class="opt"><b>歩数・体重などの自己記録について：</b>ご提出は任意で、審査や保険料には使いません。出していただかなくても不利にはなりません（割戻しへの反映を検討しています）。</p>
+    <p class="note tsrc">件数の出典：厚生労働省NDBオープンデータ・患者調査。保障が絞られる範囲・育つ条件は現在検討中の設計案であり、変更されることがあります。</p>
   </div>
 </section>
 
 <!-- S6 PRICE -->
-<section>
+<section id="price">
   <div class="wrap">
-    <span class="eyebrow">掛金について</span>
-    <h2>掛金（保険料）の考え方</h2>
-    <p class="lead">具体的な掛金は、現在策定中です。先に「水準の考え方」だけ、はっきりお伝えします。</p>
+    <span class="eyebrow">保険料について</span>
+    <h2>月額3,900円から</h2>
+    <p class="lead">年齢（45〜54歳／55〜64歳）・原因の病気・現在の健康状態により、<b>月額3,900円〜7,800円</b>です。複数の医療記録で安定を確認できた方には、加入時の保険料が約1割安くなる「記録割」があります。</p>
+    <div class="pbig">3,900円<small>〜7,800円／月（検証中の水準です）</small></div>
+
+    <h3 style="font-size:17px;color:var(--navy);margin:30px 0 6px;">保険料が変わるのは、年1回の更新のときだけ</h3>
+    <p style="font-size:14.5px;color:var(--sub);margin-bottom:8px;">6か月の時点では保険料は変わりません。1年ごとの更新で、健康状態により<b>下がる・上がる・更新できない</b>場合があります。値上げになる場合の例（55〜64歳）：</p>
+    <div class="upex">
+      <div class="up">
+        <h4>大腸ポリープのあと — 更新で健康状態が悪化した場合</h4>
+        <div class="row"><span>標準で加入した方</span><b>4,800円 → 5,200円<span class="d">（+400円・約8%）</span></b></div>
+        <div class="row"><span>記録割で加入した方</span><b>4,300円 → 5,200円<span class="d">（+900円・約21%）</span></b></div>
+      </div>
+      <div class="up">
+        <h4>2型糖尿病のあと — 更新で健康状態が悪化した場合</h4>
+        <div class="row"><span>標準で加入した方</span><b>6,500円 → 7,100円<span class="d">（+600円・約9%）</span></b></div>
+        <div class="row"><span>記録割で加入した方</span><b>5,900円 → 7,100円<span class="d">（+1,200円・約20%）</span></b></div>
+      </div>
+    </div>
+    <p class="note" style="margin-bottom:26px;">記録割は<b>加入時の割引</b>です。同じ健康状態へ悪化した場合の更新後の保険料は同じ金額になるため、記録割で加入した方のほうが値上げの幅は大きく見えます。1回の検査値だけで値上げすることはなく、原則として8週以上離れた2回の医療記録、または入院などの重大な事象で確認します。</p>
+
+    <details style="margin-bottom:26px;"><summary>料金表のすべてを見る（16区分）</summary><div class="a">
+      <p style="margin:8px 0 2px;font-weight:700;color:var(--navy);">通常保険料（現在の健康状態が基準内の方）</p>
+      <table class="price">
+        <tr><th>年齢</th><th>原因の病気</th><th>はじめの保障（標準）</th><th>はじめの保障（記録割）</th><th>半分保障※</th><th>まるごと保障※</th></tr>
+        <tr><td>45〜54歳</td><td>大腸ポリープ</td><td>4,300円</td><td>3,900円</td><td>3,900円</td><td>3,900円</td></tr>
+        <tr><td>45〜54歳</td><td>2型糖尿病</td><td>5,800円</td><td>5,200円</td><td>5,200円</td><td>5,200円</td></tr>
+        <tr><td>55〜64歳</td><td>大腸ポリープ</td><td>4,800円</td><td>4,300円</td><td>4,300円</td><td>4,300円</td></tr>
+        <tr><td>55〜64歳</td><td>2型糖尿病</td><td>6,500円</td><td>5,900円</td><td>5,900円</td><td>5,900円</td></tr>
+      </table>
+      <p style="margin:14px 0 2px;font-weight:700;color:var(--navy);">高リスク保険料（所見はあるが、治療完了・安定を確認できた方）</p>
+      <table class="price">
+        <tr><th>年齢</th><th>原因の病気</th><th>はじめの保障（標準）</th><th>はじめの保障（記録割）</th><th>半分保障※</th><th>まるごと保障※</th></tr>
+        <tr><td>45〜54歳</td><td>大腸ポリープ</td><td>5,200円</td><td>4,700円</td><td>4,700円</td><td>4,700円</td></tr>
+        <tr><td>45〜54歳</td><td>2型糖尿病</td><td>7,000円</td><td>6,300円</td><td>6,300円</td><td>6,300円</td></tr>
+        <tr><td>55〜64歳</td><td>大腸ポリープ</td><td>5,800円</td><td>5,200円</td><td>5,200円</td><td>5,300円</td></tr>
+        <tr><td>55〜64歳</td><td>2型糖尿病</td><td>7,800円</td><td>7,100円</td><td>7,100円</td><td>7,600円</td></tr>
+      </table>
+      <p class="note" style="margin-top:10px;">※「半分保障」「まるごと保障」の列は、1年ごとの更新時に適用される基準の保険料です。6か月で保障が半分保障に育っても、保険料は初回の更新まで加入時の金額のまま変わりません。健康状態が引受の上限を超える場合は、保険料を上げてもお引き受けせず、更新できません。</p>
+    </div></details>
+
+    <h3 style="font-size:16px;color:var(--navy);margin:8px 0 10px;">水準の位置づけ</h3>
     <div class="ladder">
       <div class="lad l1"><span>通常の<br>医療保険</span></div>
       <div class="lad l2"><span>引受基準<br>緩和型</span></div>
@@ -432,7 +485,7 @@
     <div class="ladCap">
       <div>健康な方向け</div><div>持病があっても<br>入りやすい</div><div><b style="color:var(--tealD);">いま、どちらにも<br>入れない方向け</b></div><div>誰でも入れるが<br>高額・保障開始が遅い</div>
     </div>
-    <div class="pricebox"><b>水準の前提：</b>無選択型ほど高くはなく、引受基準緩和型よりは少し高い水準を前提に設計します（金額は今後策定・仮）。加えて「わけわけ」の割戻しにより、結果として実質のご負担が下がる可能性があります（割戻しをお約束するものではありません）。</div>
+    <div class="pricebox"><b>水準の前提：</b>無選択型ほど高くはなく、引受基準緩和型より少し高い水準です。加えて「わけわけ」の割戻しにより、結果として実質のご負担が下がる可能性があります（割戻しをお約束するものではありません）。金額は検証中の水準であり、変更されることがあります。</div>
   </div>
 </section>
 
@@ -443,8 +496,8 @@
     <h2>「わけわけ」— みんなで支え合い、余ったら戻す</h2>
     <p class="lead">これは保険会社の商品ではなく、同じ経験をした人どうしが少人数で支え合う共済（たすけあい）のしくみです。</p>
     <div class="wgrid">
-      <div class="wcard"><div class="icwrap teal"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="9.2" cy="8" r="3.1"/><path d="M2.8 19c0-3.2 2.9-5.6 6.4-5.6S15.6 15.8 15.6 19"/><path d="M16.2 5.4a3 3 0 0 1 0 5.5"/><path d="M18.2 13.4c2 .7 3.3 2.2 3.3 4.2"/></svg></div><h3>集めて、支払う</h3><p>参加者の掛金から、入院された方への給付をお支払いします。給付には年間の上限を設け、みんなの掛金を守ります。</p></div>
-      <div class="wcard"><div class="icwrap teal"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="3.6" y="9.2" width="16.8" height="10.6" rx="2"/><path d="M3.6 13.2h16.8M12 9.2v10.6"/><path d="M12 9.2C11 6.8 9.9 5.8 8.6 5.8A2 2 0 0 0 8.4 9.2zM12 9.2c1-2.4 2.1-3.4 3.4-3.4a2 2 0 0 1 .2 3.4z"/></svg></div><h3>余ったら、戻す</h3><p>給付が少なかった年は、余った掛金の一部を参加者に割戻します。掛け捨てで終わらない可能性がある、それがこのしくみの持ち味です。</p></div>
+      <div class="wcard"><div class="icwrap teal"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="9.2" cy="8" r="3.1"/><path d="M2.8 19c0-3.2 2.9-5.6 6.4-5.6S15.6 15.8 15.6 19"/><path d="M16.2 5.4a3 3 0 0 1 0 5.5"/><path d="M18.2 13.4c2 .7 3.3 2.2 3.3 4.2"/></svg></div><h3>集めて、支払う</h3><p>参加者の保険料から、入院された方への給付をお支払いします。給付には年間の上限を設け、みんなの保険料を守ります。</p></div>
+      <div class="wcard"><div class="icwrap teal"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="3.6" y="9.2" width="16.8" height="10.6" rx="2"/><path d="M3.6 13.2h16.8M12 9.2v10.6"/><path d="M12 9.2C11 6.8 9.9 5.8 8.6 5.8A2 2 0 0 0 8.4 9.2zM12 9.2c1-2.4 2.1-3.4 3.4-3.4a2 2 0 0 1 .2 3.4z"/></svg></div><h3>余ったら、戻す</h3><p>給付が少なかった年は、余った保険料の一部を参加者に割戻します。払いっぱなしで終わらない可能性がある、それがこのしくみの持ち味です。</p></div>
       <div class="wcard"><div class="icwrap teal"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3.4"/><circle cx="12" cy="12" r="8.4" stroke-dasharray="2.4 3.2"/></svg></div><h3>小さいから、できる</h3><p>1つのグループは1,000人まで。この「小ささ」こそが、大きな保険会社にはできない柔軟な引受を可能にしています。</p></div>
     </div>
     <p class="wnote">※ 運営は、P2P互助プラットフォームを手がけるfrich株式会社（規制サンドボックス特例認定・2020年）を予定しています。</p>
@@ -458,25 +511,33 @@
     <h2>よくある質問</h2>
     <p class="lead" style="margin-bottom:26px;">各項目をタップすると回答が開きます。検討中の構想のため、内容は変わる可能性があります。</p>
 
-    <details><summary>本当に入れますか？</summary><div class="a">「直近の入院・手術で他の保険に入れないこと」と「健康診断の結果などで現在の状態を示せること」の2つを満たす方が対象です。所定の審査があり、すべての方をお引き受けできるわけではありませんが、<b>病名や入院の事実だけを理由にお断りすることはしません</b>。</div></details>
+    <details><summary>本当に入れますか？</summary><div class="a">対象は、大腸ポリープの内視鏡切除後（30日〜）または2型糖尿病の教育・血糖調整入院後（90日〜）の45〜64歳の方です。健康診断の結果や医療機関の記録による所定の審査があり、すべての方をお引き受けできるわけではありませんが、<b>「入院・手術をした」という事実だけを理由にお断りすることはしません</b>。</div></details>
 
-    <details><summary>診断書は必要ですか？</summary><div class="a"><b>直近の健康診断の結果は必須です。</b>あわせてお薬手帳（服薬の記録）、退院時の書類や検査結果があればご提出ください。心臓の治療後やがんの治療後など一部のケースでは、主治医に記入いただく簡単なフォーム1枚をお願いする場合があります。高額な診断書の取得を前提にはしません。なお健診結果については、<b>マイナンバーカードを使ったマイナポータル連携でのご提出にも対応する予定</b>で、その場合は書類の準備が不要になります。健診を受けていない方は、まず健診の受診からご案内します。</div></details>
+    <details><summary>診断書は必要ですか？</summary><div class="a"><b>直近の健康診断の結果は必須です。</b>あわせて、大腸ポリープの方は内視鏡・病理の報告書、糖尿病の方は退院時の書類や検査結果をご提出ください。高額な診断書の取得を前提にはしません。健診結果は、<b>マイナンバーカードを使ったマイナポータル連携でのご提出にも対応する予定</b>です。健診を受けていない方は、まず健診の受診からご案内します。</div></details>
 
-    <details><summary>AIが審査すると聞きましたが、機械的に断られませんか？</summary><div class="a">むしろ逆です。人が数問の告知だけで判断すると「入院歴あり＝お断り」になりがちですが、AIは<b>検査値の推移・服薬や通院の記録・活動量を横断して評価</b>できるため、「病名はあるが、いまは落ち着いている」という状態を拾えます。判定の基準は国内外の診療ガイドラインや最新の臨床研究をもとに設計し、新しい知見が出れば見直します。最終的な引受の可否は人の確認を経て決定します。</div></details>
+    <details><summary>6か月で保険料（月額）は変わりますか？</summary><div class="a"><b>変わりません。</b>回復基準を満たした場合は、保障だけが「半分保障」へ育ちます。保険料を見直すのは1年ごとの更新のときだけです。</div></details>
 
-    <details><summary>「不担保」とはなんですか？いつ外れますか？</summary><div class="a">原因になった病気のグループ（例：大腸ポリープなら「大腸の病気」）だけを、はじめの一定期間、給付の対象外とするしくみです。<b>それ以外の病気・ケガは初日から保障されます。</b>毎年の更新で数値や検査受診が確認できれば、「半分給付」→「満額」へと段階的に解除されます。</div></details>
+    <details><summary>途中で健康状態が悪くなると、保障は減りますか？</summary><div class="a"><b>保険期間中は減りません。保険料も上がりません。</b>一度育った保障が後退することもありません。健康状態は1年ごとの更新のときに見直し、悪化している場合は保険料が上がる、または更新できないことがあります。</div></details>
 
-    <details><summary>数値が悪くなったら、給付を断られますか？</summary><div class="a"><b>いいえ。</b>数値の悪化を理由に給付をお断りすることはありません（事実と異なる告知があった場合を除きます）。悪化した年は、保険料の割引と保障の“育ち”が一時停止するだけです。翌年、数値が戻れば再開します。</div></details>
+    <details><summary>1回の検査値が悪かっただけで、値上げされますか？</summary><div class="a">原則としてありません。<b>8週以上離れた2回の医療記録、または入院などの重大な事象</b>で確認したうえで判断します。</div></details>
 
-    <details><summary>加入してすぐに入院したら支払われますか？</summary><div class="a">加入直後の短い待機期間（30日程度を想定）と、原因疾患グループの不担保期間があります。また、<b>申込時点で予定されていた入院・手術、教育入院・検査のための入院は対象外</b>です。それ以外の急な病気・ケガによる入院は保障されます。</div></details>
+    <details><summary>更新のとき、資料が揃わないとどうなりますか？</summary><div class="a">資料が足りないことを理由に自動で値上げすることはありません。<b>必要な資料が揃うまで、更新の判断を保留します。</b></div></details>
 
-    <details><summary>掛金（保険料）はいくらですか？</summary><div class="a">現在策定中です。水準としては、<b>無選択型（告知なしで誰でも入れる保険）ほど高くなく、引受基準緩和型より少し高いレンジ</b>を前提にしています。確定次第、このページでお知らせします。</div></details>
+    <details><summary>給付が42万円に達するとどうなりますか？</summary><div class="a">1年間の給付金の合計は42万円が上限です（入院30万円＋入院中手術10万円＋退院後給付金2万円の最大合計）。<b>42万円に達した日の翌日に契約は消滅し、その後は更新できません。</b></div></details>
 
-    <details><summary>ふつうの保険に入れるようになったら、乗り換えるべきですか？</summary><div class="a">ご判断は自由です。ただ、この共済は<b>続けた実績がそのまま価値になる</b>設計です——管理実績による割引、割戻し、満額まで育った保障は、乗り換えるとリセットされます。他の保険と比べたうえで、続ける方が有利と感じていただける設計を目指しています。</div></details>
+    <details><summary>「契約の消滅」と「更新できない」は同じですか？</summary><div class="a">異なります。<b>42万円到達による消滅</b>は、保険期間の途中でも契約が終了するものです。<b>更新できない</b>は、健康状態が引受の上限を超えた場合に、満期のあとの更新をお引き受けしないものです。</div></details>
+
+    <details><summary>AIが審査すると聞きましたが、機械的に断られませんか？</summary><div class="a">むしろ逆です。人が数問の告知だけで判断すると「入院歴あり＝お断り」になりがちですが、AIは<b>検査値の推移・服薬や通院の記録を横断して評価</b>できるため、「病名はあるが、いまは落ち着いている」という状態を拾えます。判定の基準は国内外の診療ガイドラインや臨床研究をもとに設計し、定型の基準で決まらない場合は個別に判断します。</div></details>
+
+    <details><summary>数値が悪くなったら、給付を断られますか？</summary><div class="a"><b>いいえ。</b>数値の悪化を理由に給付をお断りすることはありません（事実と異なる告知があった場合を除きます）。悪化が反映されるのは、次の年の更新時の保険料だけです。</div></details>
+
+    <details><summary>加入してすぐに入院したら支払われますか？</summary><div class="a">原因になった病気のグループは「はじめの保障（0%）」から育つしくみのため、加入直後は対象外です。また、<b>申込時点で予定されていた入院・手術、教育入院・検査のための入院は対象外</b>です。それ以外の急な病気・ケガによる入院は、初日から保障されます。</div></details>
+
+    <details><summary>ふつうの保険に入れるようになったら、乗り換えるべきですか？</summary><div class="a">ご判断は自由です。ただ、この共済は<b>続けた実績がそのまま価値になる</b>設計です——育った保障、記録の実績、割戻しは、乗り換えるとリセットされます。他の保険と比べたうえで、続ける方が有利と感じていただける設計を目指しています。</div></details>
 
     <details><summary>これは「保険」ですか？</summary><div class="a">保険会社が販売する保険ではなく、<b>少人数で支え合う共済（互助）のしくみ</b>です。1グループ1,000人まで、給付には年間の上限があります。その「小ささ」こそが、保険会社がお断りする状況の方を柔軟にお迎えできる理由です。制度上の位置づけや詳細は、正式なご案内時に明示します。</div></details>
 
-    <details><summary>告知や提出データに誤りがあった場合はどうなりますか？</summary><div class="a">事実と異なる告知・データの提出があった場合、給付をお支払いできず、ご参加をお断りすることがあります。このしくみは「正直な情報を出してくれる方を、正当に評価する」ことで成り立っています。正確な情報こそが、みんなの掛金を守ります。</div></details>
+    <details><summary>告知や提出データに誤りがあった場合はどうなりますか？</summary><div class="a">事実と異なる告知・データの提出があった場合、給付をお支払いできず、ご参加をお断りすることがあります。このしくみは「正直な情報を出してくれる方を、正当に評価する」ことで成り立っています。正確な情報こそが、みんなの保険料を守ります。</div></details>
   </div>
 </section>
 
@@ -488,9 +549,9 @@
       <h2>「断って終わり」にしない、という選択肢</h2>
       <p style="font-size:15px;color:var(--sub);margin-top:8px;">告知で謝絶になったお客さまに、いま提案できる商品はほとんどありません。本構想は、その空白を埋めるための“つなぎ”です。</p>
       <div class="aggrid">
-        <div class="ag ag-risk"><div class="icwrap blue"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8.2" r="3.3"/><path d="M5.2 19.6c0-3.5 3-5.9 6.8-5.9s6.8 2.4 6.8 5.9"/></svg></div><h4>想定するお客さま</h4><p>緩和型の告知「過去1〜2年以内の入院・手術」に該当して謝絶となった方。大腸ポリープ切除後・教育入院後・PCI後・がん術後6ヶ月〜など。</p></div>
+        <div class="ag ag-risk"><div class="icwrap blue"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8.2" r="3.3"/><path d="M5.2 19.6c0-3.5 3-5.9 6.8-5.9s6.8 2.4 6.8 5.9"/></svg></div><h4>想定するお客さま</h4><p>緩和型の告知「過去1〜2年以内の入院・手術」に該当して謝絶となった方。まずは<b>大腸ポリープ切除後・糖尿病の教育入院後</b>の2つから始めます（PCI後・がん術後などへの拡大は将来検討）。</p></div>
         <div class="ag"><div class="icwrap blue"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5.6" width="16" height="14" rx="2"/><path d="M4 10h16M8.4 3.6v4M15.6 3.6v4"/></svg></div><h4>既存商品と競合しません</h4><p>1〜2年後、緩和型・通常型に入れる状態になったお客さまへの本命提案は、これまでどおり皆さまの役割です。本共済はそこまでの期間を保障し、毎年の健診提出が自然な再面談の機会になります。</p></div>
-        <div class="ag"><div class="icwrap blue"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12.6V5.6A1.6 1.6 0 0 1 5.6 4h7l7.4 7.4-8 8z"/><circle cx="8.4" cy="8.4" r="1.3"/></svg></div><h4>掛金水準とリスク分担</h4><p><b>無選択型ほど高くなく、緩和型よりは少し高い水準</b>を前提に策定中です。あわせて、しくみによっては<b>手数料の戻入というかたちで取扱代理店にも一定のリスクを分担</b>いただくことを想定しています（水準・条件は協議のうえ設定）。</p></div>
+        <div class="ag"><div class="icwrap blue"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12.6V5.6A1.6 1.6 0 0 1 5.6 4h7l7.4 7.4-8 8z"/><circle cx="8.4" cy="8.4" r="1.3"/></svg></div><h4>保険料水準とリスク分担</h4><p><b>月額3,900〜7,800円</b>（年齢・疾患・健康状態別、検証中）。保険料の見直しは年1回で、6か月時点の変更はありません。あわせて、しくみによっては<b>手数料の戻入というかたちで取扱代理店にも一定のリスクを分担</b>いただくことを想定しています（水準・条件は協議のうえ設定）。</p></div>
       </div>
       <div class="agcta">
         <a class="btn" href="https://forms.gle/oAy48GTCmM5uCgfT7" target="_blank" rel="noopener">ヒアリング・販売協力のご登録</a>
