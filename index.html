@@ -94,7 +94,7 @@
   .punch b{color:#7FD7E4;}
 
   /* who */
-  .who2{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:18px;}
+  .who2{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:18px;}
   .cond{background:var(--tealL);border:1px solid #BCE3E8;border-radius:14px;padding:24px;}
   .cond .n{font-weight:800;color:var(--tealD);font-size:13px;letter-spacing:.08em;}
   .cond .icwrap{background:rgba(15,163,177,.14);color:var(--tealD);width:36px;height:36px;border-radius:10px;margin-bottom:10px;}
@@ -204,18 +204,6 @@
   table.price td{padding:8px;border:1px solid var(--line);text-align:right;}
   table.price td:first-child,table.price td:nth-child(2){text-align:left;}
   @media(max-width:840px){.grow{grid-template-columns:1fr;}.upex{grid-template-columns:1fr;}}
-  /* status badges on target cards */
-  .tcard .stat{display:inline-block;font-size:11px;font-weight:800;border-radius:999px;padding:4px 11px;margin-bottom:8px;align-self:flex-start;}
-  .stat.on{background:var(--tealL);color:var(--tealD);}
-  .stat.soon{background:var(--amberL);color:var(--amber);}
-  .tcard.dim{background:#FBFCFE;}
-  .tcard.dim h3{color:var(--sub);}
-  /* expansion chips */
-  .expand{margin-top:20px;background:#fff;border:1px dashed var(--line);border-radius:14px;padding:20px 24px;}
-  .expand .h{font-size:14px;font-weight:800;color:var(--navy);margin-bottom:10px;}
-  .chips{display:flex;flex-wrap:wrap;gap:10px;}
-  .chip{font-size:13px;color:var(--sub);background:var(--bg);border:1px solid var(--line);border-radius:999px;padding:7px 15px;}
-  .chip b{color:var(--amber);font-weight:700;}
   /* premium visible table */
   table.rate{width:100%;border-collapse:collapse;font-size:14.5px;background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;margin:8px 0 6px;}
   table.rate th{background:var(--navy);color:#fff;padding:11px 12px;text-align:center;font-size:13px;font-weight:700;}
@@ -247,6 +235,7 @@
   .concept h3{color:#7FD7E4;font-size:18px;margin-bottom:8px;}
   .concept p{font-size:14.5px;color:#DDE6F5;}
   .concept b{color:#fff;}
+  @media(max-width:1000px){.who2{grid-template-columns:1fr 1fr;}}
   @media(max-width:840px){.rec2{grid-template-columns:1fr;}table.rate{font-size:13px;}table.rate th,table.rate td{padding:9px 8px;}}
   /* faq */
   details{border:1px solid var(--line);border-radius:12px;margin-bottom:12px;background:#fff;overflow:hidden;}
@@ -305,7 +294,7 @@
     <div>
       <span class="eyebrow">入院・手術のあとで、保険に断られた方へ</span>
       <h1>病気のあとも、<br>回復に合わせて保障が育つ。</h1>
-      <p class="sub">入院・手術のあとで保険に断られた方へ。まずは大腸ポリープ・2型糖尿病の方から価格を決めてご提供し、順次、対象を広げます。原因となった病気以外は、初日から保障します。</p>
+      <p class="sub">大腸ポリープ・2型糖尿病・心臓カテーテル治療・脳卒中・がんの治療のあとの、45〜64歳の方向け。原因となった病気以外は、初日から保障します。</p>
       <ul class="facts">
         <li>月額3,900円から</li>
         <li>6か月で保障が育つ</li>
@@ -349,27 +338,33 @@
   <div class="wrap">
     <span class="eyebrow">対象となる方</span>
     <h2>入院・手術のあとで、保険に断られた方へ</h2>
-    <p class="lead">最終的には、入院・手術のあとで保険に入れない幅広い方を対象にします。<b>まずは次の2つの経験をされた45〜64歳の方から、価格を決めてご提供します</b>（順次、対象を広げます）。病名ではなく、健康診断の結果や医療機関の記録など<b>客観的な情報</b>で現在の状態を見ます。</p>
+    <p class="lead">45〜64歳で、次のいずれかの経験をされた方が対象です。病名ではなく、健康診断の結果や医療機関の記録など<b>客観的な情報</b>で現在の状態を見ます。</p>
     <div class="who2">
       <div class="cond">
-        <div class="icwrap teal"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.6 4.6l14.8 14.8"/><circle cx="12" cy="12" r="8.6"/></svg></div><div class="n">いま申込可（価格あり）・対象 1</div>
+        <div class="icwrap teal"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.6 4.6l14.8 14.8"/><circle cx="12" cy="12" r="8.6"/></svg></div><div class="n">対象 1</div>
         <h3>大腸ポリープを内視鏡で切除したあとの方</h3>
         <p>処置から30日ほど経っていれば、お申込みいただけます。医療保険の告知「過去1〜2年以内の手術」に該当して断られた方が対象です。</p>
       </div>
       <div class="cond">
-        <div class="icwrap teal"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19v-6M10 19V6M15 19v-9M20 19v-4"/></svg></div><div class="n">いま申込可（価格あり）・対象 2</div>
+        <div class="icwrap teal"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19v-6M10 19V6M15 19v-9M20 19v-4"/></svg></div><div class="n">対象 2</div>
         <h3>2型糖尿病の教育入院・血糖調整入院をされた方</h3>
         <p>退院から90日ほど経ち、血糖の状態が落ち着いていれば、お申込みいただけます。数値が改善していても保険に断られた——そんな方のためのしくみです。</p>
       </div>
-    </div>
-    <div class="expand">
-      <div class="h">順次、対象を広げていきます（準備中）</div>
-      <div class="chips">
-        <span class="chip">心臓カテーテル治療（PCI）のあと <b>準備中</b></span>
-        <span class="chip">脳卒中のあと（軽症・自立） <b>準備中</b></span>
-        <span class="chip">がんの治療のあと（完了6か月〜） <b>準備中</b></span>
+      <div class="cond">
+        <div class="icwrap teal"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 12.5h3.2l2-4.6 3.3 9.2 2.2-6.1 1.5 1.5h4.8"/></svg></div><div class="n">対象 3</div>
+        <h3>心臓カテーテル治療（PCI）をされたあとの方</h3>
+        <p>退院からしばらく経ち、症状が落ち着いていればお申込みいただけます。血圧やコレステロールの数値が基準内で、処方されたお薬を続けていることが目安です。</p>
       </div>
-      <p class="note" style="margin-top:12px;">上記は、しくみの考え方としては同じ「回復に合わせて保障が育つ」対象ですが、<b>価格は今後の設定</b>です。ご要望はページ下部のフォームからお寄せください。</p>
+      <div class="cond">
+        <div class="icwrap teal"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="6" r="2.4"/><circle cx="6" cy="16.5" r="2.4"/><circle cx="18" cy="16.5" r="2.4"/><path d="M10.4 7.9L7.3 14.4M13.6 7.9l3.1 6.5M8.4 16.5h7.2"/></svg></div><div class="n">対象 4</div>
+        <h3>脳卒中のあと、日常生活が自立している方</h3>
+        <p>退院後、ご自身で日常生活を送れている方が対象です。血圧が基準内で、処方されたお薬（抗凝固薬・抗血小板薬など）を続けていることが目安です。</p>
+      </div>
+      <div class="cond">
+        <div class="icwrap teal"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.4l7.2 3.1v5.9c0 4.1-2.9 7.5-7.2 8.9-4.3-1.4-7.2-4.8-7.2-8.9V6.5z"/><path d="M9.4 12.3l1.9 1.9 3.6-3.9"/></svg></div><div class="n">対象 5</div>
+        <h3>がんの治療が終わって6か月以上たった方</h3>
+        <p>手術・治療が完了して6か月以上経ち、再発・転移がない方が対象です。医師の指示どおりに定期検査を受け続けていることが目安です。</p>
+      </div>
     </div>
     <div class="ng">
       <h4>対象にならない方</h4>
@@ -444,12 +439,11 @@
 <section class="targets">
   <div class="wrap">
     <span class="eyebrow">対象事例</span>
-    <h2>4つのケースで、具体的に</h2>
-    <p class="lead">「対象外になるもの」と「初日から保障されるもの」を、具体的にご覧ください。上の2つは<b>いま価格が決まっている対象</b>、下の2つは<b>順次対応予定</b>です。</p>
+    <h2>5つのケースで、具体的に</h2>
+    <p class="lead">「対象が絞られるもの」と「初日から保障されるもの」を、具体的にご覧ください。</p>
     <div class="tgrid">
 
       <div class="tcard">
-        <span class="stat on">いま申込可・価格あり</span>
         <h3>大腸ポリープ・内視鏡治療のあと</h3>
         <span class="scale">入院を伴うものだけで年間34万件 — 手術件数で全国最多クラス</span>
         <div class="tt w">保障が育つまで対象が絞られるもの（0%→50%→100%）</div>
@@ -465,7 +459,6 @@
       </div>
 
       <div class="tcard">
-        <span class="stat on">いま申込可・価格あり</span>
         <h3>糖尿病の教育入院・血糖調整入院のあと</h3>
         <span class="scale">糖尿病で治療中の方は全国552万人</span>
         <div class="tt w">保障が育つまで対象が絞られるもの（0%→50%→100%）</div>
@@ -479,8 +472,7 @@
         <div class="kaijo"><b>保障が育つ条件：</b>血糖状態（HbA1c）が基準の範囲内で悪化していないこと、お薬と通院を続けていること、健診結果のご提出。</div>
       </div>
 
-      <div class="tcard dim">
-        <span class="stat soon">順次対応予定（価格は今後）</span>
+      <div class="tcard">
         <h3>心臓カテーテル治療（PCI）のあと</h3>
         <span class="scale">カテーテル治療は年間24.5万件</span>
         <div class="tt w">保障が育つまで対象が絞られるもの（0%→50%→100%）</div>
@@ -491,11 +483,10 @@
           <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 12.6l4.8 4.8L19.5 7.2"/></svg>胃腸・肝臓など消化器の病気</li>
           <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 12.6l4.8 4.8L19.5 7.2"/></svg>がん、脳の病気、糖尿病での入院</li>
         </ul>
-        <div class="kaijo"><b>保障が育つ条件（予定）：</b>LDLコレステロールと血圧が基準内、処方されたお薬（抗血小板薬など）の継続、禁煙、再発がないこと。</div>
+        <div class="kaijo"><b>保障が育つ条件：</b>LDLコレステロールと血圧が基準内であること、処方されたお薬（抗血小板薬など）の継続、禁煙、再発がないこと。</div>
       </div>
 
-      <div class="tcard dim">
-        <span class="stat soon">順次対応予定（価格は今後）</span>
+      <div class="tcard">
         <h3>がんの手術のあと（治療完了から6か月〜）</h3>
         <span class="scale">がんと診断される方は年間99万人 — うち現役世代が約20万人</span>
         <div class="tt w">保障が育つまで対象が絞られるもの（0%→50%→100%）</div>
@@ -506,12 +497,26 @@
           <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 12.6l4.8 4.8L19.5 7.2"/></svg>心臓や脳の病気、糖尿病での入院</li>
           <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 12.6l4.8 4.8L19.5 7.2"/></svg>胆石・ヘルニアなど、がん以外のすべての病気</li>
         </ul>
-        <div class="kaijo"><b>保障が育つ条件（予定）：</b>数値ではなく、医師の指示どおりに定期検査（画像・内視鏡など）を受け続けていること。大腸がんでは、運動が再発リスクを下げることが臨床試験で示されています。</div>
+        <div class="kaijo"><b>保障が育つ条件：</b>数値ではなく、医師の指示どおりに定期検査（画像・内視鏡など）を受け続けていること。大腸がんでは、運動が再発リスクを下げることが臨床試験で示されています。</div>
+      </div>
+
+      <div class="tcard">
+        <h3>脳卒中のあと（軽症・自立している方）</h3>
+        <span class="scale">脳卒中の発症は年間約29万件</span>
+        <div class="tt w">保障が育つまで対象が絞られるもの（0%→50%→100%）</div>
+        <ul class="w"><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="4.6" y="4.6" width="14.8" height="14.8" rx="3.2"/></svg>脳梗塞・脳出血・くも膜下出血・一過性脳虚血発作（TIA）、そのリハビリのための入院</li></ul>
+        <div class="tt o">初日から保障されるもの（例）</div>
+        <ul class="o">
+          <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 12.6l4.8 4.8L19.5 7.2"/></svg>肺炎での入院、骨折・ケガの手術</li>
+          <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 12.6l4.8 4.8L19.5 7.2"/></svg>虫垂炎・胆石など消化器の病気</li>
+          <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 12.6l4.8 4.8L19.5 7.2"/></svg>がん、心臓の病気、糖尿病での入院</li>
+        </ul>
+        <div class="kaijo"><b>保障が育つ条件：</b>血圧が基準内であること、処方されたお薬（抗凝固薬・抗血小板薬など）の継続、再発がないこと。</div>
       </div>
 
     </div>
     <p class="opt"><b>歩数・体重などの自己記録について：</b>ご提出は任意で、審査や保険料には使いません。出していただかなくても不利にはなりません（割戻しへの反映を検討しています）。</p>
-    <p class="note tsrc">件数の出典：厚生労働省NDBオープンデータ・患者調査。保障が絞られる範囲・育つ条件は現在検討中の設計案であり、変更されることがあります。</p>
+    <p class="note tsrc">件数の出典：厚生労働省NDBオープンデータ・患者調査、JROAD（2024年版）、全国がん登録（2023年）、滋賀県脳卒中登録に基づく全国推計。保障が絞られる範囲・育つ条件は現在検討中の設計案であり、変更されることがあります。</p>
   </div>
 </section>
 
@@ -531,7 +536,7 @@
       <tr><td>55〜64歳</td><td>大腸ポリープ</td><td class="std">4,800円</td><td class="rec">4,300円</td></tr>
       <tr><td>55〜64歳</td><td>2型糖尿病</td><td class="std">6,500円</td><td class="rec">5,900円</td></tr>
     </table>
-    <p class="note" style="margin-bottom:6px;">これは「はじめの保障」で加入するときの月額です。<b>性別による差はありません</b>（年齢・原因の病気・健康状態で決まります）。健康状態により「高リスク」の区分になる場合は、これより高くなります（<a href="#allrate" style="color:var(--tealD);font-weight:700;">全区分の料金表</a>）。金額は検証中の水準です。</p>
+    <p class="note" style="margin-bottom:6px;">これは「はじめの保障」で加入するときの月額です。<b>性別による差はありません</b>（年齢・原因の病気・健康状態で決まります）。健康状態により「高リスク」の区分になる場合は、これより高くなります（<a href="#allrate" style="color:var(--tealD);font-weight:700;">全区分の料金表</a>）。<b>心臓カテーテル治療・脳卒中・がんの治療のあとの方の保険料は、お申込みの際に個別にご案内します。</b>金額は検証中の水準です。</p>
 
     <h3 style="font-size:17px;color:var(--navy);margin:30px 0 8px;">「記録割」とは — 記録で安定を示せた方への割引</h3>
     <p style="font-size:14.5px;color:var(--sub);margin-bottom:6px;">健康診断や医療機関の記録が複数そろい、<b>8週以上あけた2つの時点などで「状態が安定している」と確認できた方</b>は、加入時の月額が約1割安くなります。保障の中身は「標準」とまったく同じです。</p>
@@ -609,7 +614,7 @@
     <h2>よくある質問</h2>
     <p class="lead" style="margin-bottom:26px;">各項目をタップすると回答が開きます。検討中の構想のため、内容は変わる可能性があります。</p>
 
-    <details><summary>本当に入れますか？</summary><div class="a">対象は、大腸ポリープの内視鏡切除後（30日〜）または2型糖尿病の教育・血糖調整入院後（90日〜）の45〜64歳の方です。健康診断の結果や医療機関の記録による所定の審査があり、すべての方をお引き受けできるわけではありませんが、<b>「入院・手術をした」という事実だけを理由にお断りすることはしません</b>。</div></details>
+    <details><summary>本当に入れますか？</summary><div class="a">対象は、45〜64歳で、大腸ポリープの内視鏡切除後（30日〜）／2型糖尿病の教育・血糖調整入院後（90日〜）／心臓カテーテル治療のあと／脳卒中のあと（自立している方）／がんの治療完了から6か月〜、のいずれかにあてはまる方です。健康診断の結果や医療機関の記録による所定の審査があり、すべての方をお引き受けできるわけではありませんが、<b>「入院・手術をした」という事実だけを理由にお断りすることはしません</b>。</div></details>
 
     <details><summary>診断書は必要ですか？</summary><div class="a"><b>直近の健康診断の結果は必須です。</b>あわせて、大腸ポリープの方は内視鏡・病理の報告書、糖尿病の方は退院時の書類や検査結果をご提出ください。高額な診断書の取得を前提にはしません。健診結果は、<b>マイナンバーカードを使ったマイナポータル連携でのご提出にも対応する予定</b>です。健診を受けていない方は、まず健診の受診からご案内します。</div></details>
 
@@ -647,7 +652,7 @@
       <h2>「断って終わり」にしない、という選択肢</h2>
       <p style="font-size:15px;color:var(--sub);margin-top:8px;">告知で謝絶になったお客さまに、いま提案できる商品はほとんどありません。本構想は、その空白を埋めるための“つなぎ”です。</p>
       <div class="aggrid">
-        <div class="ag ag-risk"><div class="icwrap blue"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8.2" r="3.3"/><path d="M5.2 19.6c0-3.5 3-5.9 6.8-5.9s6.8 2.4 6.8 5.9"/></svg></div><h4>想定するお客さま</h4><p>緩和型の告知「過去1〜2年以内の入院・手術」に該当して謝絶となった方。まずは<b>大腸ポリープ切除後・糖尿病の教育入院後</b>の2つから始めます（PCI後・がん術後などへの拡大は将来検討）。</p></div>
+        <div class="ag ag-risk"><div class="icwrap blue"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8.2" r="3.3"/><path d="M5.2 19.6c0-3.5 3-5.9 6.8-5.9s6.8 2.4 6.8 5.9"/></svg></div><h4>想定するお客さま</h4><p>緩和型の告知「過去1〜2年以内の入院・手術」に該当して謝絶となった方。<b>大腸ポリープ切除後・糖尿病の教育入院後・PCI後・脳卒中後（自立）・がん術後6か月〜</b>が対象です（料金表を公開しているのは大腸ポリープ・2型糖尿病。他は個別にご案内）。</p></div>
         <div class="ag"><div class="icwrap blue"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5.6" width="16" height="14" rx="2"/><path d="M4 10h16M8.4 3.6v4M15.6 3.6v4"/></svg></div><h4>既存商品と競合しません</h4><p>1〜2年後、緩和型・通常型に入れる状態になったお客さまへの本命提案は、これまでどおり皆さまの役割です。本共済はそこまでの期間を保障し、毎年の健診提出が自然な再面談の機会になります。</p></div>
         <div class="ag"><div class="icwrap blue"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12.6V5.6A1.6 1.6 0 0 1 5.6 4h7l7.4 7.4-8 8z"/><circle cx="8.4" cy="8.4" r="1.3"/></svg></div><h4>保険料水準とリスク分担</h4><p><b>月額3,900〜7,800円</b>（年齢・疾患・健康状態別、検証中）。保険料の見直しは年1回で、6か月時点の変更はありません。あわせて、しくみによっては<b>手数料の戻入というかたちで取扱代理店にも一定のリスクを分担</b>いただくことを想定しています（水準・条件は協議のうえ設定）。</p></div>
       </div>
